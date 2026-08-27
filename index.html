@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trilha de Treinamento NIR</title>
+
+<style>
+:root{
+  --navy:#17324d;
+  --blue:#2f6f95;
+  --light:#f4f8fb;
+  --text:#243746;
+  --muted:#657786;
+  --white:#fff;
+  --border:#dce7ee
+}
+
+*{
+  box-sizing:border-box
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:var(--light);
+  line-height:1.55
+}
+
+.hero{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:white;
+  padding:55px 20px 48px;
+  text-align:center
+}
+
+.tag{
+  display:inline-block;
+  padding:7px 13px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:30px;
+  font-size:13px;
+  margin-bottom:15px
+}
+
+h1{
+  margin:0 0 10px;
+  font-size:clamp(30px,5vw,46px)
+}
+
+.hero p{
+  max-width:700px;
+  margin:auto;
+  font-size:17px
+}
+
+/* IDENTIFICAÇÃO DA AUTORIA */
+.author{
+  margin:24px auto 0;
+  padding:12px 18px;
+  max-width:500px;
+  font-size:14px;
+  line-height:1.6;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:10px;
+  background:rgba(255,255,255,.08)
+}
+
+.author strong{
+  font-weight:bold
+}
+
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:38px 20px 60px
+}
+
+.intro{
+  text-align:center;
+  margin-bottom:30px
+}
+
+.intro h2{
+  margin:0 0 8px;
+  color:var(--navy)
+}
+
+.intro p{
+  margin:0;
+  color:var(--muted)
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 8px 25px rgba(23,50,77,.06)
+}
+
+.number{
+  display:inline-flex;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  align-items:center;
+  justify-content:center;
+  background:#e7f1f7;
+  color:var(--navy);
+  font-weight:bold;
+  margin-bottom:13px
+}
+
+h3{
+  margin:0 0 7px;
+  color:var(--navy);
+  font-size:21px
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px
+}
+
+.btn{
+  display:inline-block;
+  padding:11px 15px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+  border:1px solid var(--border);
+  color:var(--navy);
+  background:white
+}
+
+.btn.primary{
+  background:var(--navy);
+  color:white;
+  border-color:var(--navy)
+}
+
+.note{
+  margin-top:34px;
+  background:white;
+  border-left:5px solid var(--blue);
+  border-radius:12px;
+  padding:18px 20px;
+  border-top:1px solid var(--border);
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border)
+}
+
+.note strong{
+  color:var(--navy)
+}
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  padding:25px 20px 35px
+}
+
+@media(max-width:720px){
+  .grid{
+    grid-template-columns:1fr
+  }
+
+  .hero{
+    padding-top:45px
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+
+  <div class="tag">
+    Núcleo Interno de Regulação • NIR
+  </div>
+
+  <h1>
+    Trilha de Treinamento
+  </h1>
+
+  <p>
+    Conhecimento, comunicação e padronização para fortalecer o trabalho em equipe e a continuidade do cuidado.
+  </p>
+
+  <div class="author">
+    <strong>Idealização e desenvolvimento:</strong><br>
+    Janaina Rosa Rodrigues da Silva — 2026
+  </div>
+
+</header>
+
+<main class="container">
+
+  <section class="intro">
+    <h2>Treinamentos</h2>
+    <p>
+      Acesse os vídeos e materiais de apoio de cada etapa da trilha.
+    </p>
+  </section>
+
+  <section class="grid">
+
+    <article class="card">
+
+      <div class="number">
+        01
+      </div>
+
+      <h3>
+        Ética, Respeito e Responsabilidade
+      </h3>
+
+      <div class="subtitle">
+        Convivência profissional, responsabilidade, diálogo, prevenção e respeito no ambiente de trabalho.
+      </div>
+
+      <div class="actions">
+
+        <a
+          class="btn primary"
+          href="COLE_AQUI_O_LINK_DO_VIDEO_01"
+          target="_blank"
+        >
+          ▶ Assistir treinamento
+        </a>
+
+        <a
+          class="btn"
+          href="COLE_AQUI_O_LINK_DO_PDF_01"
+          target="_blank"
+        >
+          PDF / Slides
+        </a>
+
+      </div>
+
+    </article>
+
+    <article class="card">
+
+      <div class="number">
+        02
+      </div>
+
+      <h3>
+        Comunicação Efetiva e Passagem de Plantão
+      </h3>
+
+      <div class="subtitle">
+        Comunicação clara, registros resolutivos, pendências e continuidade das ações entre os plantões.
+      </div>
+
+      <div class="actions">
+
+        <a
+          class="btn primary"
+          href="COLE_AQUI_O_LINK_DO_VIDEO_02"
+          target="_blank"
+        >
+          ▶ Assistir treinamento
+        </a>
+
+        <a
+          class="btn"
+          href="COLE_AQUI_O_LINK_DO_PDF_02"
+          target="_blank"
+        >
+          PDF / Slides
+        </a>
+
+      </div>
+
+    </article>
+
+  </section>
+
+  <div class="note">
+    <strong>Como usar:</strong>
+    publique os vídeos no YouTube e substitua os endereços indicados no arquivo pelos links dos vídeos e dos materiais. A página não precisa ser refeita.
+  </div>
+
+</main>
+
+<footer>
+
+  Trilha de Treinamento NIR • Material educativo e de apoio à rotina do setor
+  <br><br>
+  <strong>Idealização e desenvolvimento: Janaina Rosa Rodrigues da Silva — 2026.</strong>
+
+</footer>
+
+</body>
+</html>
