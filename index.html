@@ -58,16 +58,30 @@ h1{
 /* IDENTIFICAÇÃO DA AUTORIA */
 .author{
   margin:24px auto 0;
-  padding:12px 18px;
-  max-width:500px;
+  max-width:620px;
+  text-align:center
+}
+
+.signature{
+  display:block;
+  width:100%;
+  max-width:560px;
+  height:auto;
+  margin:0 auto 18px;
+  border-radius:8px;
+  background:white
+}
+
+.author-text{
   font-size:14px;
   line-height:1.6;
+  padding:10px 18px;
   border:1px solid rgba(255,255,255,.25);
   border-radius:10px;
   background:rgba(255,255,255,.08)
 }
 
-.author strong{
+.author-text strong{
   font-weight:bold
 }
 
@@ -206,8 +220,18 @@ footer{
   </p>
 
   <div class="author">
-    <strong>Idealização e desenvolvimento:</strong><br>
-    Janaina Rosa Rodrigues da Silva — 2026
+
+    <img
+      src="./Assinatura%20-%20JRRS.jpg"
+      alt="Assinatura Janaína Rosa"
+      class="signature"
+    >
+
+    <div class="author-text">
+      <strong>Idealização e desenvolvimento:</strong><br>
+      Janaína Rosa Rodrigues da Silva — 2026
+    </div>
+
   </div>
 
 </header>
@@ -215,10 +239,13 @@ footer{
 <main class="container">
 
   <section class="intro">
+
     <h2>Treinamentos</h2>
+
     <p>
       Acesse os vídeos e materiais de apoio de cada etapa da trilha.
     </p>
+
   </section>
 
   <section class="grid">
@@ -243,6 +270,7 @@ footer{
           class="btn primary"
           href="COLE_AQUI_O_LINK_DO_VIDEO_01"
           target="_blank"
+          rel="noopener noreferrer"
         >
           ▶ Assistir treinamento
         </a>
@@ -251,6 +279,7 @@ footer{
           class="btn"
           href="COLE_AQUI_O_LINK_DO_PDF_01"
           target="_blank"
+          rel="noopener noreferrer"
         >
           PDF / Slides
         </a>
@@ -279,6 +308,7 @@ footer{
           class="btn primary"
           href="COLE_AQUI_O_LINK_DO_VIDEO_02"
           target="_blank"
+          rel="noopener noreferrer"
         >
           ▶ Assistir treinamento
         </a>
@@ -287,6 +317,7 @@ footer{
           class="btn"
           href="COLE_AQUI_O_LINK_DO_PDF_02"
           target="_blank"
+          rel="noopener noreferrer"
         >
           PDF / Slides
         </a>
@@ -298,8 +329,10 @@ footer{
   </section>
 
   <div class="note">
+
     <strong>Como usar:</strong>
     publique os vídeos no YouTube e substitua os endereços indicados no arquivo pelos links dos vídeos e dos materiais. A página não precisa ser refeita.
+
   </div>
 
 </main>
@@ -307,10 +340,15 @@ footer{
 <footer>
 
   Trilha de Treinamento NIR • Material educativo e de apoio à rotina do setor
+
   <br><br>
-  <strong>Idealização e desenvolvimento: Janaina Rosa Rodrigues da Silva — 2026.</strong>
+
+  <strong>
+    Idealização e desenvolvimento: Janaína Rosa Rodrigues da Silva — 2026.
+  </strong>
 
 </footer>
 
 </body>
 </html>
+```
