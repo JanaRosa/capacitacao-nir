@@ -1635,11 +1635,6 @@ function openLesson(number){
   }
 
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
 
   window.currentLesson=number;
 
@@ -1696,13 +1691,7 @@ function closeLesson(){
   ).style.display="block";
 
   updateProgress();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
+ }
 
 
 /* =========================
