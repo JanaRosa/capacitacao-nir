@@ -1548,25 +1548,23 @@ function openLesson(number){
   course.description;
 
 
-  const videoLink =
-  document.getElementById(
-    "videoLink"
-  );
+ const videoFrame =
+document.getElementById(
+  "videoFrame"
+);
 
-  if(
-    course.video &&
-    !course.video.startsWith("COLE_AQUI")
-  ){
+if(
+  course.video &&
+  !course.video.startsWith("COLE_AQUI")
+){
 
-    videoLink.href=course.video;
+  videoFrame.src=course.video;
 
-    videoLink.style.display="inline-flex";
+}else{
 
-  }else{
+  videoFrame.src="";
 
-    videoLink.style.display="none";
-
-  }
+}
 
 
   const pdfLink =
