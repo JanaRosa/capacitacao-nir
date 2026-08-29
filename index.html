@@ -502,26 +502,21 @@ button{
   max-width:800px;
 }
 
+/* VÍDEO */
+
 .video-placeholder{
   margin:28px 0;
   background:#102c43;
   border-radius:18px;
-  min-height:350px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  text-align:center;
-  padding:30px;
+  overflow:hidden;
+  width:100%;
 }
 
-.video-placeholder-inner{
-  max-width:500px;
-}
-
-.video-icon{
-  font-size:50px;
-  margin-bottom:10px;
+.video-placeholder iframe{
+  display:block;
+  width:100%;
+  min-height:420px;
+  border:0;
 }
 
 .material-box{
@@ -713,8 +708,8 @@ footer{
     font-size:26px;
   }
 
-  .video-placeholder{
-    min-height:230px;
+  .video-placeholder iframe{
+    min-height:220px;
   }
 
   .course-actions .btn{
@@ -856,7 +851,6 @@ footer{
           </p>
 
         </div>
-
 
         <div class="author-box">
 
@@ -1209,22 +1203,21 @@ footer{
           como esses princípios aparecem na nossa rotina.
         </p>
 
+
         <!-- VÍDEO -->
 
-      <div class="video-placeholder" style="padding:0; overflow:hidden;">
+        <div class="video-placeholder">
 
-  <iframe
-    id="videoFrame"
-    width="100%"
-    height="420"
-    src=""
-    title="Treinamento CAPACITA NIR"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
+          <iframe
+            id="videoFrame"
+            src=""
+            title="Treinamento CAPACITA NIR"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
 
-</div>
+        </div>
+
 
         <!-- MATERIAL -->
 
@@ -1245,6 +1238,7 @@ footer{
             href="#"
             target="_blank"
             rel="noopener noreferrer"
+            style="display:none;"
           >
             📄 Abrir material
           </a>
@@ -1321,7 +1315,7 @@ const courses = {
     "Antes de começar, reserve alguns minutos para assistir ao conteúdo e refletir sobre como esses princípios aparecem na nossa rotina.",
 
     video:
-    "https://youtu.be/8PUp9O1Yz1I",
+    "https://www.youtube.com/embed/9jPCpkI8JKU",
 
     pdf:
     "COLE_AQUI_O_LINK_DO_PDF_01"
@@ -1548,23 +1542,23 @@ function openLesson(number){
   course.description;
 
 
- const videoFrame =
-document.getElementById(
-  "videoFrame"
-);
+  const videoFrame =
+  document.getElementById(
+    "videoFrame"
+  );
 
-if(
-  course.video &&
-  !course.video.startsWith("COLE_AQUI")
-){
+  if(
+    course.video &&
+    !course.video.startsWith("COLE_AQUI")
+  ){
 
-  videoFrame.src=course.video;
+    videoFrame.src=course.video;
 
-}else{
+  }else{
 
-  videoFrame.src="";
+    videoFrame.src="";
 
-}
+  }
 
 
   const pdfLink =
@@ -1582,6 +1576,8 @@ if(
     pdfLink.style.display="inline-flex";
 
   }else{
+
+    pdfLink.href="#";
 
     pdfLink.style.display="none";
 
@@ -1612,7 +1608,6 @@ if(
     completeMessage.style.display="none";
 
   }
-
 
 
   window.currentLesson=number;
@@ -1670,7 +1665,8 @@ function closeLesson(){
   ).style.display="block";
 
   updateProgress();
- }
+
+}
 
 
 /* =========================
