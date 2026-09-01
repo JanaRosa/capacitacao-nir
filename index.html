@@ -194,6 +194,68 @@ button{cursor:pointer}
 
 footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40px;border-top:1px solid var(--border);background:white}
 
+.history-cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-top:22px;
+}
+.history-card{
+  background:var(--light);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px 16px;
+  transition:.2s;
+}
+.history-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.history-icon{font-size:27px;margin-bottom:8px}
+.history-card h3{color:var(--navy);font-size:17px;margin:0 0 7px}
+.history-card p{font-size:13px}
+
+.history-page{
+  display:none;
+  min-height:100vh;
+  background:var(--light);
+}
+.history-page-header{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:white;
+}
+.history-page-inner{max-width:950px;margin:auto;padding:42px 20px}
+.history-page-header h1{margin:0 0 8px;font-size:clamp(30px,5vw,46px)}
+.history-page-header p{margin:0;opacity:.92}
+.history-content{
+  max-width:950px;
+  margin:auto;
+  padding:35px 20px 65px;
+}
+.history-content-card{
+  background:white;border:1px solid var(--border);border-radius:20px;
+  padding:28px;margin-bottom:18px;box-shadow:var(--shadow);
+}
+.history-content-card h2{color:var(--navy);margin:0 0 10px}
+.history-content-card p{color:var(--muted);margin:0}
+.timeline{
+  position:relative;
+  margin-top:22px;
+  padding-left:28px;
+  border-left:3px solid var(--blue-light);
+}
+.timeline-item{position:relative;margin-bottom:25px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-item:before{
+  content:"";
+  position:absolute;
+  left:-38px;
+  top:5px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--blue);
+  border:4px solid white;
+  box-shadow:0 0 0 2px var(--blue-light);
+}
+.timeline-item strong{color:var(--navy);display:block;margin-bottom:4px}
+.timeline-item p{font-size:14px;color:var(--muted);margin:0}
+
 @media(max-width:850px){
   .info-grid,.course-grid{grid-template-columns:1fr}
   .values-grid{grid-template-columns:repeat(2,1fr)}
@@ -293,29 +355,59 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
     </section>
 
     <section class="intro-section">
-      <h2>📖 Um pouco da nossa história</h2>
+      <h2>🏛️ Conheça o NIR</h2>
 
       <div class="history-box">
-        <p>
-          O Núcleo Interno de Regulação faz parte das estratégias de organização
-          da atenção hospitalar e de qualificação da regulação do acesso no SUS.
-          A Política Nacional de Atenção Hospitalar recomenda a criação do NIR
-          nos hospitais e estabelece entre suas funções a interface com as
-          Centrais de Regulação, a organização da capacidade assistencial e a
-          disponibilização de leitos, consultas e serviços conforme critérios
-          e protocolos.
+        <p><strong>Você sabe por que o NIR existe?</strong></p>
+
+        <p style="margin-top:10px">
+          O Núcleo Interno de Regulação faz parte da organização do cuidado
+          dentro do hospital. Seu trabalho conecta <strong>leitos, pacientes,
+          equipes e a Rede de Atenção à Saúde</strong>, contribuindo para que
+          o acesso e o uso dos recursos hospitalares aconteçam de forma mais organizada.
         </p>
 
         <p style="margin-top:12px">
-          <strong>O NIR não é apenas uma estrutura ou um conjunto de processos.</strong>
-          É uma parte importante da engrenagem que conecta o hospital à rede
-          e ajuda a transformar informação e regulação em cuidado.
+          Mas o NIR não surgiu por acaso. Sua construção está ligada à necessidade
+          de <strong>organizar o acesso, acompanhar a ocupação hospitalar e melhorar
+          os fluxos de internação, transferência e alta.</strong>
+        </p>
+
+        <p style="margin-top:12px">
+          📜 <strong>Conheça alguns marcos dessa história e entenda como o NIR
+          chegou à realidade que vivemos hoje.</strong>
         </p>
       </div>
 
-      <div style="margin-top:18px">
-        <button class="btn btn-primary" onclick="alert('Em breve: história completa, portarias e principais normativas do NIR.')">
-          📚 Conhecer história e normativas
+      <div class="history-cards">
+        <div class="history-card">
+          <div class="history-icon">📜</div>
+          <h3>De onde viemos?</h3>
+          <p>Um breve resumo da origem e evolução do NIR.</p>
+        </div>
+
+        <div class="history-card">
+          <div class="history-icon">⚖️</div>
+          <h3>Marco normativo</h3>
+          <p>A principal portaria e os marcos que ajudaram a regulamentar sua atuação.</p>
+        </div>
+
+        <div class="history-card">
+          <div class="history-icon">🎯</div>
+          <h3>Para que existimos?</h3>
+          <p>Missão, propósito e papel do NIR na organização do cuidado.</p>
+        </div>
+
+        <div class="history-card">
+          <div class="history-icon">💙</div>
+          <h3>O que nos guia?</h3>
+          <p><strong>Missão • Visão • Valores</strong></p>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;text-align:center">
+        <button class="btn btn-primary" onclick="openHistory()">
+          ✨ Conhecer a história do NIR
         </button>
       </div>
     </section>
@@ -329,6 +421,101 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
     </div>
 
   </div>
+</section>
+
+<!-- =========================
+     HISTÓRIA DO NIR
+========================= -->
+<section class="history-page" id="historyPage">
+
+  <header class="history-page-header">
+    <div class="history-page-inner">
+      <button class="back-button" style="color:white;margin-bottom:20px" onclick="showIntro()">
+        ← Voltar para apresentação
+      </button>
+      <h1>📖 A história do NIR</h1>
+      <p>Uma leitura breve para entender de onde viemos, por que existimos e como chegamos até aqui.</p>
+    </div>
+  </header>
+
+  <main class="history-content">
+
+    <div class="history-content-card">
+      <h2>🤔 Você sabia?</h2>
+      <p>
+        Antes de existir toda essa estrutura de regulação, os hospitais já enfrentavam
+        um desafio conhecido por todos: <strong>como organizar o acesso aos leitos e
+        garantir que cada paciente estivesse no lugar certo, no momento certo?</strong>
+      </p>
+    </div>
+
+    <div class="history-content-card">
+      <h2>📜 Uma história construída aos poucos</h2>
+      <p>
+        A organização da regulação hospitalar foi se fortalecendo a partir da necessidade
+        de acompanhar a capacidade instalada, organizar o acesso e melhorar os fluxos de
+        internação, transferência e alta. O NIR surge nesse contexto como uma estrutura
+        estratégica de articulação dentro do hospital e com a Rede de Atenção à Saúde.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>Origem e evolução</strong>
+          <p>O trabalho de regulação interna se desenvolve para responder aos desafios de acesso, ocupação e organização dos leitos hospitalares.</p>
+        </div>
+
+        <div class="timeline-item">
+          <strong>Marco normativo</strong>
+          <p>As políticas e normativas da atenção hospitalar passam a reconhecer e orientar a organização do Núcleo Interno de Regulação nos hospitais.</p>
+        </div>
+
+        <div class="timeline-item">
+          <strong>NIR na prática</strong>
+          <p>O núcleo passa a atuar cada vez mais integrado aos setores do hospital, às Centrais de Regulação e à rede, acompanhando o percurso do paciente.</p>
+        </div>
+
+        <div class="timeline-item">
+          <strong>Hoje</strong>
+          <p>O NIR continua evoluindo junto com os processos, a tecnologia e as necessidades da rede de saúde.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="history-content-card">
+      <h2>🎯 Para que existimos?</h2>
+      <p>
+        Para organizar e acompanhar o fluxo assistencial, apoiar a gestão dos leitos,
+        fortalecer a comunicação entre os setores e contribuir para que o paciente tenha
+        acesso à assistência de que precisa de forma mais organizada, segura e humanizada.
+      </p>
+    </div>
+
+    <div class="history-content-card">
+      <h2>💙 O que nos guia?</h2>
+      <p><strong>Missão • Visão • Valores</strong></p>
+      <p style="margin-top:10px">
+        Nosso trabalho é guiado pelo compromisso com o paciente, pela organização e
+        responsabilidade, pela ética e confidencialidade, pelo trabalho em equipe e pela
+        busca constante de melhoria.
+      </p>
+    </div>
+
+    <div class="history-content-card">
+      <h2>🌱 E daqui para frente?</h2>
+      <p>
+        Hoje, o NIR continua evoluindo. A tecnologia mudou, os processos mudaram e as
+        necessidades da rede também. Mas uma coisa permanece:
+        <strong>organizar o cuidado para que o paciente tenha acesso à assistência de que precisa.</strong>
+      </p>
+    </div>
+
+    <div style="text-align:center;margin-top:25px">
+      <button class="btn btn-primary" onclick="showIntro()">
+        ← Voltar ao início
+      </button>
+    </div>
+
+  </main>
 </section>
 
 <!-- =========================
@@ -650,6 +837,7 @@ let student = JSON.parse(localStorage.getItem("capacitaNIRStudent")) || null;
 let progress = JSON.parse(localStorage.getItem("capacitaNIRProgress")) || {1:false,2:false};
 
 const introScreen=document.getElementById("introScreen");
+const historyPage=document.getElementById("historyPage");
 const loginScreen=document.getElementById("loginScreen");
 const app=document.getElementById("app");
 const loginForm=document.getElementById("loginForm");
@@ -657,12 +845,22 @@ const loginForm=document.getElementById("loginForm");
 function showIntro(){
   loginScreen.style.display="none";
   introScreen.style.display="block";
+  historyPage.style.display="none";
+  app.style.display="none";
+  window.scrollTo(0,0);
+}
+
+function openHistory(){
+  introScreen.style.display="none";
+  loginScreen.style.display="none";
+  historyPage.style.display="block";
   app.style.display="none";
   window.scrollTo(0,0);
 }
 
 function showLogin(){
   introScreen.style.display="none";
+  historyPage.style.display="none";
   loginScreen.style.display="flex";
   app.style.display="none";
   window.scrollTo(0,0);
@@ -670,6 +868,7 @@ function showLogin(){
 
 function showApp(){
   introScreen.style.display="none";
+  historyPage.style.display="none";
   loginScreen.style.display="none";
   app.style.display="block";
   document.getElementById("studentDisplay").textContent=student.name;
