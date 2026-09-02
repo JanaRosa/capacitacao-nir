@@ -171,6 +171,42 @@ button{cursor:pointer}
 .lesson-intro{color:var(--muted);max-width:800px}
 .video-placeholder{margin:28px 0;background:#102c43;border-radius:18px;overflow:hidden;width:100%}
 .video-placeholder iframe{display:block;width:100%;min-height:420px;border:0}
+/* ===== APRESENTAÇÃO DENTRO DA PLATAFORMA ===== */
+.presentation-box{
+  margin:28px 0 20px;
+  background:#102c43;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(23,50,77,.12);
+}
+.presentation-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:14px 18px;
+  color:white;
+  background:rgba(0,0,0,.12);
+}
+.presentation-header strong{font-size:14px}
+.presentation-frame{
+  display:block;
+  width:100%;
+  height:620px;
+  border:0;
+  background:white;
+}
+.presentation-note{
+  padding:10px 16px;
+  color:rgba(255,255,255,.82);
+  font-size:12px;
+  background:#102c43;
+}
+@media(max-width:600px){
+  .presentation-frame{height:420px}
+  .presentation-header{align-items:flex-start;flex-direction:column}
+}
+
 .material-box{border:1px solid var(--border);background:var(--light);border-radius:15px;padding:20px;margin-top:20px}
 .material-box h3{margin-top:0;color:var(--navy)}
 .complete-area{margin-top:28px;padding-top:25px;border-top:1px solid var(--border)}
@@ -654,12 +690,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
               ▶ Começar aula
             </button>
 
-            <a class="btn"
-               href="documentos/etica-respeito-responsabilidade.pptx"
-               target="_blank"
-               rel="noopener noreferrer">
-              📄 Material
-            </a>
+            <button class="btn" onclick="openLesson(1); setTimeout(()=>document.getElementById('presentationBox').scrollIntoView({behavior:'smooth',block:'start'}),100)">
+              📊 Ver apresentação
+            </button>
           </div>
         </article>
 
@@ -763,7 +796,22 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
           e refletir sobre como esses princípios aparecem na nossa rotina.
         </p>
 
-        <div class="video-placeholder">
+        <div class="presentation-box" id="presentationBox" style="display:none;">
+          <div class="presentation-header">
+            <strong>📊 Apresentação do treinamento</strong>
+            <span>Você está dentro do CAPACITA NIR</span>
+          </div>
+          <iframe id="presentationFrame"
+                  class="presentation-frame"
+                  src=""
+                  title="Apresentação do treinamento CAPACITA NIR"
+                  allowfullscreen></iframe>
+          <div class="presentation-note">
+            Use os controles do visualizador para avançar e voltar os slides.
+          </div>
+        </div>
+
+        <div class="video-placeholder" id="videoBox">
           <iframe id="videoFrame"
                   src=""
                   title="Treinamento CAPACITA NIR"
@@ -823,7 +871,8 @@ const courses = {
     title:"Ética, Respeito e Responsabilidade",
     description:"Antes de começar, reserve alguns minutos para assistir ao conteúdo e refletir sobre como esses princípios aparecem na nossa rotina.",
     video:"https://www.youtube.com/embed/9jPCpkI8JKU",
-    pdf:"documentos/etica-respeito-responsabilidade.pptx"
+    pptx:"https://github.com/JanaRosa/capacitacao-nir/raw/refs/heads/main/%C3%89tica%2C%20respeito%20e%20responsabilidade%20no%20ambiente%20de%20trabalho.pptx",
+    pdf:""
   },
   2:{
     title:"Comunicação Efetiva e Passagem de Plantão",
@@ -931,6 +980,18 @@ function openLesson(number){
 
   document.getElementById("lessonTitle").textContent=course.title;
   document.getElementById("lessonDescription").textContent=course.description;
+
+  const presentationBox=document.getElementById("presentationBox");
+  const presentationFrame=document.getElementById("presentationFrame");
+
+  if(course.pptx){
+    const officeUrl="https://view.officeapps.live.com/op/embed.aspx?src="+encodeURIComponent(course.pptx);
+    presentationFrame.src=officeUrl;
+    presentationBox.style.display="block";
+  }else{
+    presentationFrame.src="";
+    presentationBox.style.display="none";
+  }
 
   const videoFrame=document.getElementById("videoFrame");
 
