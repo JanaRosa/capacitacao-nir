@@ -871,7 +871,7 @@ const courses = {
     title:"Ética, Respeito e Responsabilidade",
     description:"Antes de começar, reserve alguns minutos para assistir ao conteúdo e refletir sobre como esses princípios aparecem na nossa rotina.",
     video:"https://www.youtube.com/embed/9jPCpkI8JKU",
-    pptx:"https://github.com/JanaRosa/capacitacao-nir/raw/refs/heads/main/%C3%89tica%2C%20respeito%20e%20responsabilidade%20no%20ambiente%20de%20trabalho.pptx",
+    pptx:"https://docs.google.com/presentation/d/1amqCujnLFs6CgA8LqwH6bi6FkCMF-h943d-h1T_idfY/embed?start=false&loop=false&delayms=3000",
     pdf:""
   },
   2:{
@@ -985,8 +985,7 @@ function openLesson(number){
   const presentationFrame=document.getElementById("presentationFrame");
 
   if(course.pptx){
-    const officeUrl="https://view.officeapps.live.com/op/embed.aspx?src="+encodeURIComponent(course.pptx);
-    presentationFrame.src=officeUrl;
+    presentationFrame.src=course.pptx;
     presentationBox.style.display="block";
   }else{
     presentationFrame.src="";
