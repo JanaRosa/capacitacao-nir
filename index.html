@@ -448,6 +448,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
       </div>
     </section>
 
+    <div class="login-access" style="margin-top:30px">
+      <h2>📚 Biblioteca NIR</h2>
+      <p>Consulte formulários e documentos de apoio à rotina do NIR.</p>
+      <button class="intro-login-button" onclick="openLibrary()">
+        📂 Acessar Biblioteca NIR →
+      </button>
+    </div>
+
     <div class="login-access">
       <h2>🎓 Pronto para começar?</h2>
       <p>Acesse sua trilha de capacitação e fortaleça seus conhecimentos.</p>
@@ -551,6 +559,47 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
       </button>
     </div>
 
+  </main>
+</section>
+
+<!-- =========================
+     BIBLIOTECA NIR — ACESSO LIVRE
+========================= -->
+<section class="history-page" id="libraryPage">
+  <header class="history-page-header">
+    <div class="history-page-inner">
+      <button class="back-button" style="color:white;margin-bottom:20px" onclick="showIntro()">
+        ← Voltar para apresentação
+      </button>
+      <h1>📚 Biblioteca NIR</h1>
+      <p>Documentos e formulários para apoiar a rotina do Núcleo Interno de Regulação.</p>
+    </div>
+  </header>
+
+  <main class="history-content">
+    <div class="history-content-card">
+      <h2>🔄 Solicitações Externas</h2>
+      <p>Acesse os formulários utilizados nas solicitações de procedimentos, exames e outras demandas externas do NIR.</p>
+      <div style="text-align:center;margin-top:22px">
+        <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1b7rHPDDy81Ms2qcEQ0YRPQNH-QTcQEIM?usp=sharing" target="_blank" rel="noopener noreferrer">
+          📂 Abrir pasta de Solicitações Externas
+        </a>
+      </div>
+    </div>
+
+    <div class="history-content-card"><h2>📋 POPs</h2><p>Procedimentos Operacionais e materiais padronizados.</p></div>
+    <div class="history-content-card"><h2>🔄 Fluxos</h2><p>Fluxos e orientações para facilitar a rotina do NIR.</p></div>
+    <div class="history-content-card"><h2>📊 Indicadores</h2><p>Materiais relacionados ao acompanhamento dos processos.</p></div>
+    <div class="history-content-card"><h2>📑 Documentos e Normas</h2><p>Documentos de referência e materiais institucionais.</p></div>
+
+    <div class="material-box">
+      <h3>🔐 Atenção</h3>
+      <p>A biblioteca deve conter somente modelos e documentos apropriados para compartilhamento. Nunca publique documentos preenchidos com dados de pacientes.</p>
+    </div>
+
+    <div style="text-align:center;margin-top:25px">
+      <button class="btn btn-primary" onclick="showIntro()">← Voltar ao início</button>
+    </div>
   </main>
 </section>
 
@@ -770,40 +819,41 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
       </section>
 
       <section id="externalRequestsSection" style="display:none;margin-top:28px">
-  <button class="back-button" onclick="closeExternalRequests()">← Voltar para Biblioteca</button>
-  <div class="lesson-card">
-    <div class="lesson-label">Biblioteca NIR</div>
-    <h2 style="font-size:30px">🔄 Solicitações Externas</h2>
-    <p class="lesson-intro">
-      Acesse os formulários utilizados no dia a dia do NIR diretamente pela pasta oficial.
-    </p>
-
-    <div class="library-item" style="text-align:center;margin-top:22px;padding:30px">
-      <div style="font-size:3rem;margin-bottom:10px">📂</div>
-      <h3 style="color:var(--navy);margin:0 0 8px">Pasta de Solicitações Externas</h3>
-      <p>
-        Os documentos ficam organizados no Google Drive. Assim, novos formulários
-        podem ser acrescentados ou atualizados na pasta sem precisar alterar o site.
-      </p>
-      <a class="btn btn-primary"
-         href="https://drive.google.com/drive/folders/1b7rHPDDy81Ms2qcEQ0YRPQNH-QTcQEIM?usp=sharing"
-         target="_blank"
-         rel="noopener noreferrer"
-         style="margin-top:12px">
-        📂 Abrir pasta no Google Drive
-      </a>
-    </div>
-
-    <div class="material-box" style="margin-top:22px">
-      <h3>🔐 Atenção</h3>
-      <p>
-        Disponibilize nesta pasta somente modelos em branco.
-        Documentos preenchidos com dados de pacientes não devem ser publicados
-        em uma página pública.
-      </p>
-    </div>
-  </div>
-</section>
+        <button class="back-button" onclick="closeExternalRequests()">← Voltar para Biblioteca</button>
+        <div class="lesson-card">
+          <div class="lesson-label">Biblioteca NIR</div>
+          <h2 style="font-size:30px">🔄 Solicitações Externas</h2>
+          <p class="lesson-intro">Formulários de apoio utilizados na rotina de regulação e solicitação de procedimentos externos.</p>
+          <div class="library-grid" style="margin-top:22px">
+            <div class="library-item">
+              <strong>❤️ Alta Complexidade / Cardiovascular</strong>
+              <p>Formulários específicos para procedimentos cardiovasculares.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                <a class="btn" href="#">🫀 Arteriografia</a><a class="btn" href="#">🫀 Cateterismo</a>
+                <a class="btn" href="#">⚡ Eletrofisiologia</a><a class="btn" href="#">🩺 Intervencionistas</a>
+                <a class="btn" href="#">💓 Marcapasso</a><a class="btn" href="#">❤️ Revascularização</a>
+                <a class="btn" href="#">🫀 Valvares</a><a class="btn" href="#">🩸 Vasculares</a>
+              </div>
+            </div>
+            <div class="library-item">
+              <strong>📋 Formulários gerais</strong>
+              <p>Solicitações de alta complexidade e procedimentos de alto custo/especiais.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                <a class="btn" href="#">📄 Alta Complexidade</a><a class="btn" href="#">📄 Alto Custo / Especial</a>
+              </div>
+            </div>
+            <div class="library-item">
+              <strong>🧪 Procedimentos específicos</strong>
+              <p>Formulários de apoio para procedimentos e avaliações específicas.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                <a class="btn" href="#">🧪 CPRE</a><a class="btn" href="#">🫁 Broncoscopia</a>
+                <a class="btn" href="#">🏥 Avaliação INCA</a><a class="btn" href="#">💓 Pré-implante</a>
+              </div>
+            </div>
+          </div>
+          <div class="material-box" style="margin-top:22px"><h3>🔐 Atenção</h3><p>Disponibilize nesta biblioteca somente modelos em branco. Documentos preenchidos com dados de pacientes não devem ser publicados em uma página pública.</p></div>
+        </div>
+      </section>
 
     </section>
 
@@ -917,6 +967,7 @@ let progress = JSON.parse(localStorage.getItem("capacitaNIRProgress")) || {1:fal
 
 const introScreen=document.getElementById("introScreen");
 const historyPage=document.getElementById("historyPage");
+const libraryPage=document.getElementById("libraryPage");
 const loginScreen=document.getElementById("loginScreen");
 const app=document.getElementById("app");
 const loginForm=document.getElementById("loginForm");
@@ -925,6 +976,7 @@ function showIntro(){
   loginScreen.style.display="none";
   introScreen.style.display="block";
   historyPage.style.display="none";
+  libraryPage.style.display="none";
   app.style.display="none";
   window.scrollTo(0,0);
 }
@@ -933,6 +985,16 @@ function openHistory(){
   introScreen.style.display="none";
   loginScreen.style.display="none";
   historyPage.style.display="block";
+  libraryPage.style.display="none";
+  app.style.display="none";
+  window.scrollTo(0,0);
+}
+
+function openLibrary(){
+  introScreen.style.display="none";
+  historyPage.style.display="none";
+  libraryPage.style.display="block";
+  loginScreen.style.display="none";
   app.style.display="none";
   window.scrollTo(0,0);
 }
@@ -940,6 +1002,7 @@ function openHistory(){
 function showLogin(){
   introScreen.style.display="none";
   historyPage.style.display="none";
+  libraryPage.style.display="none";
   loginScreen.style.display="flex";
   app.style.display="none";
   window.scrollTo(0,0);
@@ -948,6 +1011,7 @@ function showLogin(){
 function showApp(){
   introScreen.style.display="none";
   historyPage.style.display="none";
+  libraryPage.style.display="none";
   loginScreen.style.display="none";
   app.style.display="block";
   document.getElementById("studentDisplay").textContent=student.name;
