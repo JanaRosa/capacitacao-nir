@@ -753,25 +753,56 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
       </section>
 
       <section class="library">
-        <h2 class="section-title">📚 Biblioteca de apoio</h2>
-
+        <h2 class="section-title">📚 Biblioteca NIR</h2>
+        <p style="color:var(--muted);margin-top:-8px;margin-bottom:20px">
+          Documentos e formulários para apoiar sua rotina no NIR.
+        </p>
         <div class="library-grid">
-
           <div class="library-item">
-            <strong>📄 POPs</strong>
-            <p>Procedimentos Operacionais e materiais padronizados.</p>
+            <strong>🔄 Solicitações Externas</strong>
+            <p>Formulários utilizados nas solicitações de procedimentos, exames e transferências externas.</p>
+            <button class="btn btn-primary" style="margin-top:8px" onclick="openExternalRequests()">📂 Acessar formulários</button>
           </div>
+          <div class="library-item"><strong>📄 POPs</strong><p>Procedimentos Operacionais e materiais padronizados.</p></div>
+          <div class="library-item"><strong>🔄 Fluxos</strong><p>Fluxos e orientações para facilitar a rotina do NIR.</p></div>
+          <div class="library-item"><strong>📊 Indicadores</strong><p>Materiais relacionados ao acompanhamento dos processos.</p></div>
+        </div>
+      </section>
 
-          <div class="library-item">
-            <strong>🔄 Fluxos</strong>
-            <p>Fluxos e orientações para facilitar a rotina do NIR.</p>
+      <section id="externalRequestsSection" style="display:none;margin-top:28px">
+        <button class="back-button" onclick="closeExternalRequests()">← Voltar para Biblioteca</button>
+        <div class="lesson-card">
+          <div class="lesson-label">Biblioteca NIR</div>
+          <h2 style="font-size:30px">🔄 Solicitações Externas</h2>
+          <p class="lesson-intro">Formulários de apoio utilizados na rotina de regulação e solicitação de procedimentos externos.</p>
+          <div class="library-grid" style="margin-top:22px">
+            <div class="library-item">
+              <strong>❤️ Alta Complexidade / Cardiovascular</strong>
+              <p>Formulários específicos para procedimentos cardiovasculares.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                <a class="btn" href="#">🫀 Arteriografia</a><a class="btn" href="#">🫀 Cateterismo</a>
+                <a class="btn" href="#">⚡ Eletrofisiologia</a><a class="btn" href="#">🩺 Intervencionistas</a>
+                <a class="btn" href="#">💓 Marcapasso</a><a class="btn" href="#">❤️ Revascularização</a>
+                <a class="btn" href="#">🫀 Valvares</a><a class="btn" href="#">🩸 Vasculares</a>
+              </div>
+            </div>
+            <div class="library-item">
+              <strong>📋 Formulários gerais</strong>
+              <p>Solicitações de alta complexidade e procedimentos de alto custo/especiais.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                <a class="btn" href="#">📄 Alta Complexidade</a><a class="btn" href="#">📄 Alto Custo / Especial</a>
+              </div>
+            </div>
+            <div class="library-item">
+              <strong>🧪 Procedimentos específicos</strong>
+              <p>Formulários de apoio para procedimentos e avaliações específicas.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                <a class="btn" href="#">🧪 CPRE</a><a class="btn" href="#">🫁 Broncoscopia</a>
+                <a class="btn" href="#">🏥 Avaliação INCA</a><a class="btn" href="#">💓 Pré-implante</a>
+              </div>
+            </div>
           </div>
-
-          <div class="library-item">
-            <strong>📊 Indicadores</strong>
-            <p>Materiais relacionados ao acompanhamento dos processos.</p>
-          </div>
-
+          <div class="material-box" style="margin-top:22px"><h3>🔐 Atenção</h3><p>Disponibilize nesta biblioteca somente modelos em branco. Documentos preenchidos com dados de pacientes não devem ser publicados em uma página pública.</p></div>
         </div>
       </section>
 
@@ -1044,6 +1075,17 @@ function closeLesson(){
   document.getElementById("lessonSection").style.display="none";
   document.getElementById("homeSection").style.display="block";
   updateProgress();
+  window.scrollTo(0,0);
+}
+
+function openExternalRequests(){
+  document.getElementById("homeSection").style.display="none";
+  document.getElementById("externalRequestsSection").style.display="block";
+  window.scrollTo(0,0);
+}
+function closeExternalRequests(){
+  document.getElementById("externalRequestsSection").style.display="none";
+  document.getElementById("homeSection").style.display="block";
   window.scrollTo(0,0);
 }
 
