@@ -708,7 +708,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
       </div>
 
       <div class="progress-info" id="progressInfo">
-        0 de 2 treinamentos concluídos
+        0 de 3 treinamentos concluídos
       </div>
     </section>
 
@@ -769,6 +769,34 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
             <a class="btn" href="#" onclick="alert('Material do treinamento 02 será disponibilizado em breve.');return false;">
               📄 Material
             </a>
+          </div>
+        </article>
+
+        <article class="course-card">
+          <span class="course-number">03</span>
+          <span class="course-status" id="status3">Não iniciado</span>
+
+          <h3>Vaga Zero</h3>
+
+          <div class="course-description">
+            Orientações práticas para a unidade solicitante realizar
+            corretamente a solicitação de Vaga Zero e utilizar os
+            materiais de apoio.
+          </div>
+
+          <div class="course-meta">
+            <span>📊 Apresentação</span>
+            <span>📝 Formulário</span>
+          </div>
+
+          <div class="course-actions">
+            <button class="btn btn-primary" onclick="openLesson(3)">
+              ▶ Ver módulo
+            </button>
+
+            <button class="btn" onclick="openLesson(3); setTimeout(()=>document.getElementById('presentationBox').scrollIntoView({behavior:'smooth',block:'start'}),100)">
+              📊 Ver apresentação
+            </button>
           </div>
         </article>
 
@@ -914,6 +942,22 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
           </a>
         </div>
 
+        <div class="material-box" id="vagaZeroFormBox" style="display:none;">
+          <h3>📝 Formulário de Vaga Zero</h3>
+
+          <p>
+            Utilize o formulário para realizar a solicitação de Vaga Zero.
+          </p>
+
+          <a id="vagaZeroFormLink"
+             class="btn btn-primary"
+             href="#"
+             target="_blank"
+             rel="noopener noreferrer">
+            📝 Abrir formulário de Vaga Zero
+          </a>
+        </div>
+
         <div class="complete-area">
 
           <button class="complete-button"
@@ -959,11 +1003,31 @@ const courses = {
     description:"Neste treinamento vamos trabalhar comunicação clara, registros resolutivos, pendências e continuidade das ações entre os plantões.",
     video:"",
     pdf:""
+  },
+
+  3:{
+    title:"Vaga Zero",
+    description:"Orientações práticas para a unidade solicitante realizar corretamente a solicitação de Vaga Zero e utilizar os materiais de apoio.",
+    video:"",
+    pptx:"https://docs.google.com/presentation/d/1hcRUtbKVB-vBmwtoUD_tbDF9OkbdfJ1G9nt_3OoeSa4/embed?start=false&loop=false&delayms=3000",
+    pdf:"",
+    form:"https://docs.google.com/document/d/1B_2VTxlmCtwUSm9qzgtJkjdnfvmiFr0PTEsyYoXEHKs/edit?usp=sharing"
   }
 };
 
 let student = JSON.parse(localStorage.getItem("capacitaNIRStudent")) || null;
-let progress = JSON.parse(localStorage.getItem("capacitaNIRProgress")) || {1:false,2:false};
+let progress = JSON.parse(localStorage.getItem("capacitaNIRProgress")) || {1:false,2:false,3:false};
+
+// Mantém o progresso já existente e acrescenta o novo Módulo 03.
+if(typeof progress[3] !== "boolean"){
+  progress[3]=false;
+}
+if(typeof progress[1] !== "boolean"){
+  progress[1]=false;
+}
+if(typeof progress[2] !== "boolean"){
+  progress[2]=false;
+}
 
 const introScreen=document.getElementById("introScreen");
 const historyPage=document.getElementById("historyPage");
@@ -1042,7 +1106,7 @@ document.getElementById("logoutButton").addEventListener("click",function(){
 
 function updateProgress(){
   const completed=Object.values(progress).filter(Boolean).length;
-  const total=2;
+  const total=3;
   const percent=Math.round((completed/total)*100);
 
   document.getElementById("progressPercent").textContent=percent+"%";
@@ -1050,7 +1114,7 @@ function updateProgress(){
   document.getElementById("progressInfo").textContent=
     completed+" de "+total+" treinamentos concluídos";
 
-  for(let i=1;i<=2;i++){
+  for(let i=1;i<=3;i++){
     const status=document.getElementById("status"+i);
 
     if(progress[i]){
@@ -1094,6 +1158,17 @@ function openLesson(number){
   }else{
     videoFrame.src="";
     videoFrame.style.display="none";
+  }
+
+  const vagaZeroFormBox=document.getElementById("vagaZeroFormBox");
+  const vagaZeroFormLink=document.getElementById("vagaZeroFormLink");
+
+  if(number===3 && course.form){
+    vagaZeroFormLink.href=course.form;
+    vagaZeroFormBox.style.display="block";
+  }else{
+    vagaZeroFormLink.href="#";
+    vagaZeroFormBox.style.display="none";
   }
 
   const pdfLink=document.getElementById("pdfLink");
