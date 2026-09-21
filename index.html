@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CAPACITA NIR | Plataforma de Capacitação</title>
+<link rel="stylesheet" href="style.css">
 
 <style>
 :root{
@@ -644,6 +645,33 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
      APLICAÇÃO
 ========================= -->
 <div class="app" id="app">
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+  ☰
+</button>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span class="icon">🎓</span>
+    <strong>CAPACITA NIR</strong>
+    <span>Plataforma de Capacitação</span>
+  </div>
+
+  <ul class="sidebar-menu">
+    <li><a href="#homeSection" class="active"><span class="menu-icon">🏠</span>Início</a></li>
+    <li><a href="#conhecaNIR"><span class="menu-icon">🏛️</span>Conheça o NIR</a></li>
+    <li><a href="#homeSection"><span class="menu-icon">🎓</span>Minha Trilha</a></li>
+    <li><a href="#biblioteca"><span class="menu-icon">📚</span>Biblioteca NIR</a></li>
+    <li><a href="#pops"><span class="menu-icon">📄</span>POPs</a></li>
+    <li><a href="#fluxos"><span class="menu-icon">🔄</span>Fluxos</a></li>
+    <li><a href="#formularios"><span class="menu-icon">📝</span>Formulários</a></li>
+    <li><a href="#duvidas"><span class="menu-icon">💡</span>Dúvidas</a></li>
+    <li><a href="#progress"><span class="menu-icon">👤</span>Meu Progresso</a></li>
+  </ul>
+</aside>
+
+<div class="main-content">
 
   <nav class="topbar">
     <div class="topbar-inner">
@@ -697,7 +725,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
       <p>Que bom ter você aqui. Vamos aprender juntos?</p>
     </section>
 
-    <section class="progress-card">
+    <section class="progress-card" id="progress">
       <div class="progress-header">
         <strong>📊 Seu progresso na trilha</strong>
         <span class="progress-percent" id="progressPercent">0%</span>
@@ -713,6 +741,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
     </section>
 
     <section id="homeSection">
+
+      <div id="conhecaNIR" style="scroll-margin-top:90px;"></div>
 
       <h2 class="section-title">🎓 Minha Trilha</h2>
 
@@ -802,7 +832,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
 
       </div>
 
-      <section class="questions">
+      <section class="questions" id="duvidas">
         <h2 class="section-title">💡 Espaço para dúvidas</h2>
 
         <div class="question-card">
@@ -829,7 +859,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
         </div>
       </section>
 
-      <section class="library">
+      <section class="library" id="biblioteca">
         <h2 class="section-title">📚 Biblioteca NIR</h2>
         <p style="color:var(--muted);margin-top:-8px;margin-bottom:20px">
           Documentos e formulários para apoiar sua rotina no NIR.
@@ -840,13 +870,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
             <p>Formulários utilizados nas solicitações de procedimentos, exames e transferências externas.</p>
             <button class="btn btn-primary" style="margin-top:8px" onclick="openExternalRequests()">📂 Acessar formulários</button>
           </div>
-          <div class="library-item"><strong>📄 POPs</strong><p>Procedimentos Operacionais e materiais padronizados.</p></div>
-          <div class="library-item"><strong>🔄 Fluxos</strong><p>Fluxos e orientações para facilitar a rotina do NIR.</p></div>
+          <div class="library-item" id="pops"><strong>📄 POPs</strong><p>Procedimentos Operacionais e materiais padronizados.</p></div>
+          <div class="library-item" id="fluxos"><strong>🔄 Fluxos</strong><p>Fluxos e orientações para facilitar a rotina do NIR.</p></div>
           <div class="library-item"><strong>📊 Indicadores</strong><p>Materiais relacionados ao acompanhamento dos processos.</p></div>
         </div>
       </section>
 
-      <section id="externalRequestsSection" style="display:none;margin-top:28px">
+      <section id="formularios" style="scroll-margin-top:90px;display:none;margin-top:28px" data-original-external="true">
         <button class="back-button" onclick="closeExternalRequests()">← Voltar para Biblioteca</button>
         <div class="lesson-card">
           <div class="lesson-label">Biblioteca NIR</div>
@@ -976,6 +1006,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
     </section>
 
   </main>
+
+  </div>
 
   <footer>
     <strong>CAPACITA NIR</strong><br>
@@ -1193,7 +1225,6 @@ function openLesson(number){
   }
 
   window.currentLesson=number;
-  window.scrollTo(0,0);
 }
 
 function completeLesson(){
@@ -1213,7 +1244,6 @@ function closeLesson(){
   document.getElementById("lessonSection").style.display="none";
   document.getElementById("homeSection").style.display="block";
   updateProgress();
-  window.scrollTo(0,0);
 }
 
 function openExternalRequests(){
@@ -1239,6 +1269,7 @@ function sendQuestion(){
   document.getElementById("questionText").value="";
 }
 </script>
+<script src="app.js"></script>
 
 </body>
 </html>
