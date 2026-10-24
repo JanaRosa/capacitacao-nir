@@ -1550,63 +1550,77 @@ document.addEventListener("DOMContentLoaded",function(){
   const toggle=document.getElementById("portalMenuToggle");
   const overlay=document.getElementById("portalMenuOverlay");
   const search=document.getElementById("portalSearch");
+  const home=document.getElementById("homeSection");
+  const lesson=document.getElementById("lessonSection");
+  const external=document.getElementById("externalRequestsSection");
+
   function closePortalMenu(){
     if(sidebar) sidebar.classList.remove("open");
     if(overlay) overlay.classList.remove("show");
-    if(toggle) toggle.setAttribute("aria-expanded","false");
-    if(toggle) toggle.setAttribute("aria-label","Abrir menu de navegação");
+    if(toggle){
+      toggle.setAttribute("aria-expanded","false");
+      toggle.setAttribute("aria-label","Abrir menu de navegação");
+    }
   }
+  function showHome(){
+    if(home) home.style.display="block";
+    if(lesson) lesson.style.display="none";
+    if(external) external.style.display="none";
+  }
+  function goTo(targetId){
+    showHome();
+    const target=document.getElementById(targetId);
+    if(target) target.scrollIntoView({behavior:"auto",block:"start"});
+  }
+
   if(toggle && sidebar){
     toggle.addEventListener("click",function(){
-      const open=sidebar.classList.toggle("open");
+      const open=!sidebar.classList.contains("open");
+      sidebar.classList.toggle("open",open);
       if(overlay) overlay.classList.toggle("show",open);
       toggle.setAttribute("aria-expanded",String(open));
       toggle.setAttribute("aria-label",open?"Fechar menu de navegação":"Abrir menu de navegação");
     });
   }
   if(overlay) overlay.addEventListener("click",closePortalMenu);
-  if(sidebar) sidebar.querySelectorAll("a").forEach(link=>link.addEventListener("click",function(event){
-    const targetId=(link.getAttribute("href")||"").replace(/^#/,"");
-    const target=document.getElementById(targetId);
-    const label=link.textContent.toLocaleLowerCase("pt-BR");
 
-    // Evita links âncora sem ação quando a área de conteúdo está em outra tela.
-    if(targetId){
-      event.preventDefault();
-      if(targetId==="externalRequestsSection"){
-        if(typeof closeLesson==="function") closeLesson();
-        document.getElementById("externalRequestsSection").style.display="block";
-        const home=document.getElementById("homeSection");
-        if(home) home.style.display="block";
-        setTimeout(()=>document.getElementById("externalRequestsSection").scrollIntoView({behavior:"smooth",block:"start"}),0);
-      }else{
-        const home=document.getElementById("homeSection");
-        const lesson=document.getElementById("lessonSection");
-        const external=document.getElementById("externalRequestsSection");
-        if(home) home.style.display="block";
-        if(lesson) lesson.style.display="none";
-        if(external) external.style.display="none";
+  if(sidebar){
+    sidebar.querySelectorAll("a").forEach(function(link){
+      link.addEventListener("click",function(event){
+        event.preventDefault();
+        const targetId=(link.getAttribute("href")||"").replace(/^#/,"");
+        const label=link.textContent.toLocaleLowerCase("pt-BR");
 
-        if(label.includes("vaga zero") || label.includes("pops e fluxos")){
+        if(label.includes("solicitações externas")){
+          showHome();
+          if(external) external.style.display="block";
+          if(external) external.scrollIntoView({behavior:"auto",block:"start"});
+        }else if(label.includes("vaga zero") || label.includes("pops e fluxos")){
+          showHome();
           if(search){
             search.value=label.includes("vaga zero")?"Vaga Zero":"POPs";
             filterPortalContent();
           }
-          const courseGrid=document.getElementById("courseGrid");
-          if(courseGrid) setTimeout(()=>courseGrid.scrollIntoView({behavior:"smooth",block:"start"}),0);
-        }else if(target){
-          setTimeout(()=>target.scrollIntoView({behavior:"smooth",block:"start"}),0);
+          const grid=document.getElementById("courseGrid");
+          const library=document.getElementById("librarySection");
+          const target=label.includes("vaga zero")?grid:library;
+          if(target) target.scrollIntoView({behavior:"auto",block:"start"});
+        }else if(targetId==="homeSection"){
+          showHome();
+          window.scrollTo(0,0);
+        }else if(targetId){
+          goTo(targetId);
         }
-      }
-    }
-    if(window.matchMedia("(max-width: 760px)").matches) closePortalMenu();
-  }));
+        closePortalMenu();
+      });
+    });
+  }
+
   if(search) search.addEventListener("input",filterPortalContent);
   document.addEventListener("keydown",function(event){
     if(event.key==="Escape") closePortalMenu();
   });
 });
-
 function sendQuestion(){
   const text=document.getElementById("questionText").value.trim();
 
