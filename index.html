@@ -870,16 +870,16 @@ footer{line-height:1.8}
       </div>
       <h3 class="portal-tools-heading">Acesso rápido</h3>
       <div class="portal-quick-grid">
-        <a class="portal-quick-card" href="#courseGrid" onclick="document.getElementById('portalSearch').value='Vaga Zero';filterPortalContent();">
+        <a class="portal-quick-card" href="#courseGrid">
           <span class="portal-quick-icon" aria-hidden="true">⚡</span><strong>Vaga Zero</strong><small>Treinamento e material de apoio</small>
         </a>
-        <a class="portal-quick-card" href="#librarySection" onclick="openExternalRequests();">
+        <a class="portal-quick-card" href="#librarySection">
           <span class="portal-quick-icon" aria-hidden="true">▤</span><strong>Formulários</strong><small>Solicitações externas</small>
         </a>
-        <a class="portal-quick-card" href="#librarySection" onclick="document.getElementById('portalSearch').value='POPs';filterPortalContent();">
+        <a class="portal-quick-card" href="#librarySection">
           <span class="portal-quick-icon" aria-hidden="true">✓</span><strong>POPs e fluxos</strong><small>Procedimentos e orientações</small>
         </a>
-        <a class="portal-quick-card" href="#courseGrid" onclick="document.getElementById('portalSearch').value='SMS Rio';filterPortalContent();">
+        <a class="portal-quick-card" href="#courseGrid">
           <span class="portal-quick-icon" aria-hidden="true">▣</span><strong>Plataforma SMS-Rio</strong><small>Treinamento e guia rápido</small>
         </a>
       </div>
@@ -1550,9 +1550,6 @@ document.addEventListener("DOMContentLoaded",function(){
   const toggle=document.getElementById("portalMenuToggle");
   const overlay=document.getElementById("portalMenuOverlay");
   const search=document.getElementById("portalSearch");
-  const home=document.getElementById("homeSection");
-  const lesson=document.getElementById("lessonSection");
-  const external=document.getElementById("externalRequestsSection");
 
   function closePortalMenu(){
     if(sidebar) sidebar.classList.remove("open");
@@ -1562,15 +1559,31 @@ document.addEventListener("DOMContentLoaded",function(){
       toggle.setAttribute("aria-label","Abrir menu de navegação");
     }
   }
-  function showHome(){
-    if(home) home.style.display="block";
+  function revealHome(){
+    const home=document.getElementById("homeSection");
+    const lesson=document.getElementById("lessonSection");
+    const external=document.getElementById("externalRequestsSection");
+    if(home) home.style.display="";
     if(lesson) lesson.style.display="none";
     if(external) external.style.display="none";
   }
-  function goTo(targetId){
-    showHome();
-    const target=document.getElementById(targetId);
-    if(target) target.scrollIntoView({behavior:"auto",block:"start"});
+  function goToSection(id){
+    revealHome();
+    const target=document.getElementById(id);
+    if(target){
+      // Aguarda a área principal voltar ao fluxo normal antes de rolar.
+      requestAnimationFrame(function(){
+        window.scrollTo({top:Math.max(0,target.getBoundingClientRect().top+window.scrollY-18),behavior:"auto"});
+      });
+    }
+  }
+  function runQuickSearch(term,id){
+    revealHome();
+    if(search){
+      search.value=term;
+      filterPortalContent();
+    }
+    goToSection(id);
   }
 
   if(toggle && sidebar){
@@ -1584,37 +1597,53 @@ document.addEventListener("DOMContentLoaded",function(){
   }
   if(overlay) overlay.addEventListener("click",closePortalMenu);
 
-  if(sidebar){
-    sidebar.querySelectorAll("a").forEach(function(link){
-      link.addEventListener("click",function(event){
-        event.preventDefault();
-        const targetId=(link.getAttribute("href")||"").replace(/^#/,"");
-        const label=link.textContent.toLocaleLowerCase("pt-BR");
+  // Um único controlador para os itens do menu lateral.
+  if(sidebar) sidebar.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click",function(event){
+      event.preventDefault();
+      const id=(link.getAttribute("href")||"").replace(/^#/,"");
+      const label=link.textContent.trim().toLocaleLowerCase("pt-BR");
 
-        if(label.includes("solicitações externas")){
-          showHome();
-          if(external) external.style.display="block";
-          if(external) external.scrollIntoView({behavior:"auto",block:"start"});
-        }else if(label.includes("vaga zero") || label.includes("pops e fluxos")){
-          showHome();
-          if(search){
-            search.value=label.includes("vaga zero")?"Vaga Zero":"POPs";
-            filterPortalContent();
-          }
-          const grid=document.getElementById("courseGrid");
-          const library=document.getElementById("librarySection");
-          const target=label.includes("vaga zero")?grid:library;
-          if(target) target.scrollIntoView({behavior:"auto",block:"start"});
-        }else if(targetId==="homeSection"){
-          showHome();
-          window.scrollTo(0,0);
-        }else if(targetId){
-          goTo(targetId);
+      if(label.includes("solicitações externas")){
+        revealHome();
+        const external=document.getElementById("externalRequestsSection");
+        if(external){
+          external.style.display="block";
+          requestAnimationFrame(function(){
+            window.scrollTo({top:Math.max(0,external.getBoundingClientRect().top+window.scrollY-18),behavior:"auto"});
+          });
         }
-        closePortalMenu();
-      });
+      }else if(label.includes("vaga zero")){
+        runQuickSearch("Vaga Zero","courseGrid");
+      }else if(label.includes("pops e fluxos")){
+        runQuickSearch("POPs","librarySection");
+      }else if(id==="homeSection"){
+        revealHome();
+        window.scrollTo({top:0,behavior:"auto"});
+      }else if(id){
+        goToSection(id);
+      }
+      closePortalMenu();
     });
-  }
+  });
+
+  // Corrige também os quatro cartões de acesso rápido.
+  document.querySelectorAll(".portal-quick-card").forEach(function(card){
+    card.addEventListener("click",function(event){
+      event.preventDefault();
+      const label=card.textContent.trim().toLocaleLowerCase("pt-BR");
+      if(label.includes("vaga zero")) runQuickSearch("Vaga Zero","courseGrid");
+      else if(label.includes("formulários")) {
+        revealHome();
+        const external=document.getElementById("externalRequestsSection");
+        if(external) external.style.display="block";
+        if(external) requestAnimationFrame(function(){
+          window.scrollTo({top:Math.max(0,external.getBoundingClientRect().top+window.scrollY-18),behavior:"auto"});
+        });
+      }else if(label.includes("pops e fluxos")) runQuickSearch("POPs","librarySection");
+      else if(label.includes("plataforma sms-rio")) runQuickSearch("SMS Rio","courseGrid");
+    });
+  });
 
   if(search) search.addEventListener("input",filterPortalContent);
   document.addEventListener("keydown",function(event){
