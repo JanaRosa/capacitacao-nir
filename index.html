@@ -1565,7 +1565,40 @@ document.addEventListener("DOMContentLoaded",function(){
     });
   }
   if(overlay) overlay.addEventListener("click",closePortalMenu);
-  if(sidebar) sidebar.querySelectorAll("a").forEach(link=>link.addEventListener("click",function(){
+  if(sidebar) sidebar.querySelectorAll("a").forEach(link=>link.addEventListener("click",function(event){
+    const targetId=(link.getAttribute("href")||"").replace(/^#/,"");
+    const target=document.getElementById(targetId);
+    const label=link.textContent.toLocaleLowerCase("pt-BR");
+
+    // Evita links âncora sem ação quando a área de conteúdo está em outra tela.
+    if(targetId){
+      event.preventDefault();
+      if(targetId==="externalRequestsSection"){
+        if(typeof closeLesson==="function") closeLesson();
+        document.getElementById("externalRequestsSection").style.display="block";
+        const home=document.getElementById("homeSection");
+        if(home) home.style.display="block";
+        setTimeout(()=>document.getElementById("externalRequestsSection").scrollIntoView({behavior:"smooth",block:"start"}),0);
+      }else{
+        const home=document.getElementById("homeSection");
+        const lesson=document.getElementById("lessonSection");
+        const external=document.getElementById("externalRequestsSection");
+        if(home) home.style.display="block";
+        if(lesson) lesson.style.display="none";
+        if(external) external.style.display="none";
+
+        if(label.includes("vaga zero") || label.includes("pops e fluxos")){
+          if(search){
+            search.value=label.includes("vaga zero")?"Vaga Zero":"POPs";
+            filterPortalContent();
+          }
+          const courseGrid=document.getElementById("courseGrid");
+          if(courseGrid) setTimeout(()=>courseGrid.scrollIntoView({behavior:"smooth",block:"start"}),0);
+        }else if(target){
+          setTimeout(()=>target.scrollIntoView({behavior:"smooth",block:"start"}),0);
+        }
+      }
+    }
     if(window.matchMedia("(max-width: 760px)").matches) closePortalMenu();
   }));
   if(search) search.addEventListener("input",filterPortalContent);
