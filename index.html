@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CAPACITA NIR | Plataforma de Capacitação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -340,6 +343,112 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
   .video-placeholder iframe{min-height:220px}
   .course-actions .btn{width:100%}
 }
+
+/* ===== REFATORAÇÃO VISUAL — PORTAL HÍBRIDO ===== */
+:root{
+  --navy:#0b3b60;
+  --blue:#176b87;
+  --blue-light:#e7f3f7;
+  --light:#f4f7fa;
+  --text:#172b3a;
+  --muted:#5b6f7f;
+  --border:#dce5ec;
+  --success:#237a5a;
+  --shadow:0 8px 26px rgba(11,59,96,.07);
+}
+body{font-family:"Inter",Arial,Helvetica,sans-serif;background:#f4f7fa}
+button,input,textarea{font-family:inherit}
+button,a,input,textarea{outline-offset:3px}
+:focus-visible{outline:3px solid #20a4bf!important;outline-offset:3px}
+.portal-sidebar{
+  position:fixed;inset:0 auto 0 0;width:258px;padding:24px 16px;
+  background:#0b3b60;color:#fff;z-index:1000;overflow-y:auto;
+  box-shadow:6px 0 24px rgba(11,59,96,.12)
+}
+.portal-brand{display:flex;align-items:center;gap:12px;padding:4px 8px 22px;border-bottom:1px solid rgba(255,255,255,.17);margin-bottom:22px}
+.portal-brand-mark{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#fff;color:#0b3b60;font-weight:800;letter-spacing:-1px}
+.portal-brand strong{display:block;font-size:16px;letter-spacing:.04em}
+.portal-brand small{display:block;color:#d3e4ef;font-size:11px;margin-top:3px}
+.portal-nav-label{padding:0 10px;margin:20px 0 8px;color:#b9d2e2;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.portal-nav{display:grid;gap:5px}
+.portal-nav a{display:flex;align-items:center;gap:11px;padding:12px 13px;border-radius:11px;color:#f5f9fc;text-decoration:none;font-size:13px;font-weight:500;transition:background .18s ease,transform .18s ease}
+.portal-nav a:hover,.portal-nav a:focus-visible{background:rgba(255,255,255,.13);transform:translateX(2px)}
+.portal-nav-icon{width:22px;text-align:center;font-size:17px}
+.portal-sidebar-note{margin:28px 5px 0;padding:14px;border:1px solid rgba(255,255,255,.18);border-radius:12px;color:#d7e6ef;font-size:11px;line-height:1.6}
+.portal-main{min-height:100vh;margin-left:258px}
+.portal-menu-toggle{display:none;position:fixed;top:12px;left:12px;width:44px;height:44px;border:0;border-radius:12px;background:#0b3b60;color:#fff;font-size:22px;z-index:1200;box-shadow:0 5px 18px rgba(11,59,96,.2)}
+.portal-menu-overlay{display:none;position:fixed;inset:0;background:rgba(10,28,42,.5);z-index:950}
+.portal-menu-overlay.show{display:block}
+.topbar{background:rgba(255,255,255,.96);backdrop-filter:blur(12px)}
+.topbar-inner{max-width:1240px}
+.brand-icon{background:#e7f3f7;color:#0b3b60}
+.logout-button{font-weight:600;transition:background .18s ease,border-color .18s ease}
+.logout-button:hover{background:#f4f7fa;border-color:#b7c9d5}
+.hero{background:linear-gradient(125deg,#0b3b60 0%,#176b87 100%)}
+.hero-inner{max-width:1240px}
+.hero-grid{gap:34px}
+.container{max-width:1240px}
+.welcome{padding:22px 24px;background:#fff;border:1px solid var(--border);border-radius:18px;margin-bottom:22px}
+.welcome h2{font-size:clamp(22px,2.5vw,29px)}
+.progress-card{margin-bottom:30px}
+.progress-fill{background:linear-gradient(90deg,#176b87,#20a4bf)}
+.course-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.course-card,.progress-card,.question-card,.library-item,.lesson-card{box-shadow:0 4px 18px rgba(11,59,96,.045);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.course-card{border-radius:17px;padding:24px}
+.course-card:hover,.library-item:hover{transform:translateY(-2px);border-color:#b7d2df;box-shadow:0 10px 26px rgba(11,59,96,.08)}
+.course-number{background:#e7f3f7;color:#0b3b60}
+.course-status{max-width:130px}
+.btn,.question-button,.complete-button,.intro-button,.intro-login-button,.login-button{min-height:44px;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+.btn:hover,.question-button:hover,.complete-button:hover,.intro-button:hover,.intro-login-button:hover,.login-button:hover{transform:translateY(-1px)}
+.btn-primary{background:#0b3b60;border-color:#0b3b60}
+.btn-primary:hover{background:#12577c;border-color:#12577c}
+.portal-tools{margin:0 0 28px;padding:22px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 4px 18px rgba(11,59,96,.04)}
+.portal-tools-heading{margin:0 0 13px;color:#0b3b60;font-size:16px}
+.portal-search-wrap{position:relative;margin-bottom:20px}
+.portal-search-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:18px;color:#6b7e8c;pointer-events:none}
+.portal-search{display:block;width:100%;min-height:48px;padding:12px 15px 12px 44px;border:1px solid #cbd8e1;border-radius:12px;background:#fff;color:#172b3a}
+.portal-search:focus{border-color:#176b87;box-shadow:0 0 0 3px rgba(23,107,135,.12)}
+.portal-search-help{margin:7px 0 0;color:#6b7e8c;font-size:12px}
+.portal-quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.portal-quick-card{display:flex;min-height:116px;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;padding:17px;border:1px solid var(--border);border-radius:14px;background:#fbfdfe;color:#172b3a;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.portal-quick-card:hover{transform:translateY(-2px);border-color:#8db9ca;box-shadow:0 8px 20px rgba(11,59,96,.07)}
+.portal-quick-icon{font-size:24px}
+.portal-quick-card strong{font-size:13px;color:#0b3b60}
+.portal-quick-card small{font-size:11px;line-height:1.4;color:#5b6f7f}
+.portal-search-results{font-size:12px;color:#5b6f7f;margin-top:12px}
+.portal-empty-state{display:none;padding:18px;border:1px dashed #b7c9d5;border-radius:12px;color:#5b6f7f;background:#fbfdfe}
+.library-item{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.library-item[hidden],.course-card[hidden]{display:none!important}
+footer{line-height:1.8}
+@media(max-width:1050px){
+  .portal-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .portal-sidebar{width:238px}
+  .portal-main{margin-left:238px}
+  .course-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .portal-sidebar{width:min(300px,86vw);transform:translateX(-105%);transition:transform .24s ease;box-shadow:none}
+  .portal-sidebar.open{transform:translateX(0);box-shadow:8px 0 30px rgba(0,0,0,.16)}
+  .portal-main{margin-left:0}
+  .portal-menu-toggle{display:block}
+  .topbar-inner{padding-left:70px}
+  .portal-tools{padding:16px}
+  .portal-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-inner{padding-top:42px}
+  .course-grid{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+  .portal-quick-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .portal-quick-card{padding:13px;min-height:108px}
+  .portal-quick-card strong{font-size:12px}
+  .portal-quick-card small{font-size:10px}
+  .course-status{position:static;display:inline-block;margin:0 0 12px}
+  .course-card{padding:19px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
 </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -679,6 +788,30 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
 ========================= -->
 <div class="app" id="app">
 
+  <aside class="portal-sidebar" id="portalSidebar" aria-label="Navegação principal">
+    <div class="portal-brand">
+      <div class="portal-brand-mark" aria-hidden="true">NIR</div>
+      <div><strong>CAPACITA NIR</strong><small>Conhecimento e apoio operacional</small></div>
+    </div>
+    <div class="portal-nav-label">Navegação</div>
+    <nav class="portal-nav" aria-label="Seções do portal">
+      <a href="#homeSection"><span class="portal-nav-icon" aria-hidden="true">⌂</span> Início</a>
+      <a href="#courseGrid"><span class="portal-nav-icon" aria-hidden="true">▦</span> Minha trilha</a>
+      <a href="#librarySection"><span class="portal-nav-icon" aria-hidden="true">▤</span> Biblioteca NIR</a>
+      <a href="#externalRequestsSection" onclick="openExternalRequests();return false;"><span class="portal-nav-icon" aria-hidden="true">↗</span> Solicitações externas</a>
+      <a href="#questionsSection"><span class="portal-nav-icon" aria-hidden="true">?</span> Dúvidas e sugestões</a>
+    </nav>
+    <div class="portal-nav-label">Acesso rápido</div>
+    <nav class="portal-nav" aria-label="Acessos rápidos">
+      <a href="#courseGrid" onclick="document.getElementById('portalSearch').value='Vaga Zero';filterPortalContent();"><span class="portal-nav-icon" aria-hidden="true">⚡</span> Vaga Zero</a>
+      <a href="#librarySection" onclick="document.getElementById('portalSearch').value='POPs';filterPortalContent();"><span class="portal-nav-icon" aria-hidden="true">✓</span> POPs e fluxos</a>
+    </nav>
+    <div class="portal-sidebar-note">Conteúdo de apoio à rotina do Núcleo Interno de Regulação. Utilize sempre os documentos oficiais e atualizados da instituição.</div>
+  </aside>
+  <div class="portal-menu-overlay" id="portalMenuOverlay"></div>
+  <button class="portal-menu-toggle" id="portalMenuToggle" type="button" aria-label="Abrir menu de navegação" aria-controls="portalSidebar" aria-expanded="false">☰</button>
+  <div class="portal-main">
+
   <nav class="topbar">
     <div class="topbar-inner">
 
@@ -726,6 +859,34 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
 
   <main class="container">
 
+
+    <section class="portal-tools" aria-labelledby="portalToolsTitle">
+      <h2 class="portal-tools-heading" id="portalToolsTitle">Encontre o que precisa</h2>
+      <div class="portal-search-wrap">
+        <span class="portal-search-icon" aria-hidden="true">⌕</span>
+        <label for="portalSearch" class="visually-hidden" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Buscar treinamentos e materiais</label>
+        <input class="portal-search" id="portalSearch" type="search" placeholder="Buscar treinamento, POP, formulário..." autocomplete="off">
+        <p class="portal-search-help">Pesquise por título ou assunto nos treinamentos e na biblioteca exibida nesta página.</p>
+      </div>
+      <h3 class="portal-tools-heading">Acesso rápido</h3>
+      <div class="portal-quick-grid">
+        <a class="portal-quick-card" href="#courseGrid" onclick="document.getElementById('portalSearch').value='Vaga Zero';filterPortalContent();">
+          <span class="portal-quick-icon" aria-hidden="true">⚡</span><strong>Vaga Zero</strong><small>Treinamento e material de apoio</small>
+        </a>
+        <a class="portal-quick-card" href="#librarySection" onclick="openExternalRequests();">
+          <span class="portal-quick-icon" aria-hidden="true">▤</span><strong>Formulários</strong><small>Solicitações externas</small>
+        </a>
+        <a class="portal-quick-card" href="#librarySection" onclick="document.getElementById('portalSearch').value='POPs';filterPortalContent();">
+          <span class="portal-quick-icon" aria-hidden="true">✓</span><strong>POPs e fluxos</strong><small>Procedimentos e orientações</small>
+        </a>
+        <a class="portal-quick-card" href="#courseGrid" onclick="document.getElementById('portalSearch').value='SMS Rio';filterPortalContent();">
+          <span class="portal-quick-icon" aria-hidden="true">▣</span><strong>Plataforma SMS-Rio</strong><small>Treinamento e guia rápido</small>
+        </a>
+      </div>
+      <div class="portal-search-results" id="portalSearchResults" aria-live="polite"></div>
+      <div class="portal-empty-state" id="portalEmptyState">Nenhum treinamento ou material encontrado. Tente outro termo.</div>
+    </section>
+
     <section class="welcome">
       <h2>Olá, <span id="studentDisplay">aluno</span>! 👋</h2>
       <p>Que bom ter você aqui. Vamos aprender juntos?</p>
@@ -750,7 +911,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
 
       <h2 class="section-title">🎓 Minha Trilha</h2>
 
-      <div class="course-grid">
+      <div class="course-grid" id="courseGrid">
 
         <article class="course-card">
           <span class="course-number">01</span>
@@ -873,7 +1034,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
 
       </div>
 
-      <section class="questions">
+      <section class="questions" id="questionsSection">
         <h2 class="section-title">💡 Espaço para dúvidas</h2>
 
         <div class="question-card">
@@ -900,7 +1061,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
         </div>
       </section>
 
-      <section class="library">
+      <section class="library" id="librarySection">
         <h2 class="section-title">📚 Biblioteca NIR</h2>
         <p style="color:var(--muted);margin-top:-8px;margin-bottom:20px">
           Documentos e formulários para apoiar sua rotina no NIR.
@@ -1086,6 +1247,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 40p
     © 2026 — Material educativo e de apoio à capacitação.
   </footer>
 
+  </div><!-- FIM portal-main -->
 </div>
 
 <script>
@@ -1363,6 +1525,54 @@ function closeExternalRequests(){
   document.getElementById("homeSection").style.display="block";
   window.scrollTo(0,0);
 }
+
+
+function filterPortalContent(){
+  const input=document.getElementById("portalSearch");
+  if(!input) return;
+  const query=input.value.trim().toLocaleLowerCase("pt-BR");
+  const courseCards=[...document.querySelectorAll("#courseGrid .course-card")];
+  const libraryCards=[...document.querySelectorAll("#librarySection .library-item")];
+  let visible=0;
+  [...courseCards,...libraryCards].forEach(card=>{
+    const match=!query || card.textContent.toLocaleLowerCase("pt-BR").includes(query);
+    card.hidden=!match;
+    if(match) visible++;
+  });
+  const results=document.getElementById("portalSearchResults");
+  const empty=document.getElementById("portalEmptyState");
+  if(results) results.textContent=query ? (visible+" resultado(s) encontrado(s).") : "";
+  if(empty) empty.style.display=query && visible===0 ? "block" : "none";
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+  const sidebar=document.getElementById("portalSidebar");
+  const toggle=document.getElementById("portalMenuToggle");
+  const overlay=document.getElementById("portalMenuOverlay");
+  const search=document.getElementById("portalSearch");
+  function closePortalMenu(){
+    if(sidebar) sidebar.classList.remove("open");
+    if(overlay) overlay.classList.remove("show");
+    if(toggle) toggle.setAttribute("aria-expanded","false");
+    if(toggle) toggle.setAttribute("aria-label","Abrir menu de navegação");
+  }
+  if(toggle && sidebar){
+    toggle.addEventListener("click",function(){
+      const open=sidebar.classList.toggle("open");
+      if(overlay) overlay.classList.toggle("show",open);
+      toggle.setAttribute("aria-expanded",String(open));
+      toggle.setAttribute("aria-label",open?"Fechar menu de navegação":"Abrir menu de navegação");
+    });
+  }
+  if(overlay) overlay.addEventListener("click",closePortalMenu);
+  if(sidebar) sidebar.querySelectorAll("a").forEach(link=>link.addEventListener("click",function(){
+    if(window.matchMedia("(max-width: 760px)").matches) closePortalMenu();
+  }));
+  if(search) search.addEventListener("input",filterPortalContent);
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape") closePortalMenu();
+  });
+});
 
 function sendQuestion(){
   const text=document.getElementById("questionText").value.trim();
