@@ -492,6 +492,17 @@ footer{line-height:1.8}
 @media(max-width:1050px){.landing-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr))}.landing-hero{padding:30px;grid-template-columns:1.1fr .9fr}.landing-nav{align-items:flex-start}.landing-nav-links{gap:12px}}
 @media(max-width:720px){.intro-inner{padding:0 15px 35px}.landing-nav{display:block;padding:14px 0}.landing-nav-links{justify-content:flex-start;margin-top:15px;gap:10px}.landing-nav-links a{font-size:12px}.landing-hero{grid-template-columns:1fr;padding:24px 20px;gap:8px}.landing-hero h1{font-size:37px}.landing-visual{min-height:190px}.visual-hospital{height:180px}.visual-caption{right:0;bottom:-2px}.landing-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.landing-shortcut{padding:12px 10px}.values-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.info-grid{grid-template-columns:1fr}}
 
+
+.procedure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.procedure-card{display:flex;flex-direction:column;gap:10px;padding:20px;background:#fff;border:1px solid #dce7f1;border-radius:16px;box-shadow:0 5px 18px rgba(8,47,86,.045)}
+.procedure-card-head{display:flex;align-items:center;gap:11px}
+.procedure-icon{width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;border-radius:13px;background:#eaf3ff;font-size:22px}
+.procedure-card h3{font-size:16px;color:#082f56;margin:0}
+.procedure-card p{font-size:13px;color:#60758a;margin:0;line-height:1.55}
+.procedure-card .btn{margin-top:auto;align-self:flex-start}
+.procedure-note{margin-top:18px;padding:14px 16px;border-radius:12px;background:#fff8df;border:1px solid #f1dfa0;color:#765916;font-size:12px}
+@media(max-width:650px){.procedure-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -1148,48 +1159,37 @@ footer{line-height:1.8}
       <section id="externalRequestsSection" style="display:none;margin-top:28px">
         <button class="back-button" onclick="closeExternalRequests()">← Voltar para Biblioteca</button>
         <div class="lesson-card">
-          <div class="lesson-label">Biblioteca NIR</div>
+          <div class="lesson-label">Biblioteca NIR • Acesso rápido</div>
           <h2 style="font-size:30px">🔄 Solicitações Externas</h2>
-          <p class="lesson-intro">Formulários de apoio utilizados na rotina de regulação e solicitação de procedimentos externos.</p>
-          <div class="library-grid" style="margin-top:22px">
-            <div class="library-item">
-              <strong>❤️ Alta Complexidade / Cardiovascular</strong>
-              <p>Formulários específicos para procedimentos cardiovasculares.</p>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
-                <a class="btn" href="#">🫀 Arteriografia</a><a class="btn" href="#">🫀 Cateterismo</a>
-                <a class="btn" href="#">⚡ Eletrofisiologia</a><a class="btn" href="#">🩺 Intervencionistas</a>
-                <a class="btn" href="#">💓 Marcapasso</a><a class="btn" href="#">❤️ Revascularização</a>
-                <a class="btn" href="#">🫀 Valvares</a><a class="btn" href="#">🩸 Vasculares</a>
-              </div>
-            </div>
-            <div class="library-item">
-              <strong>📋 Formulários gerais</strong>
-              <p>Solicitações de alta complexidade e procedimentos de alto custo/especiais.</p>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
-                <a class="btn" href="#">📄 Alta Complexidade</a><a class="btn" href="#">📄 Alto Custo / Especial</a>
-              </div>
-            </div>
-            <div class="library-item">
-              <strong>🧪 Procedimentos específicos</strong>
-              <p>Formulários de apoio para procedimentos e avaliações específicas.</p>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
-                <a class="btn" href="#">🧪 CPRE</a><a class="btn" href="#">🫁 Broncoscopia</a>
-                <a class="btn" href="#">🏥 Avaliação INCA</a><a class="btn" href="#">💓 Pré-implante</a>
-              </div>
-            </div>
-            <div class="library-item">
-              <strong>📁 Materiais por procedimento</strong>
-              <p>Acesse as pastas de apoio com formulários, documentos e infográficos de cada fluxo.</p>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
-                <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1XRP2CwY8Xr8ZfQCf998FzaQbCenlXnQf?usp=drive_link" target="_blank" rel="noopener noreferrer">⚡ Vaga Zero</a>
-                <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1YNMXN6z9R-nkCD88Tvb1W9sE-7RGyPEA?usp=drive_link" target="_blank" rel="noopener noreferrer">🩺 EDA</a>
-                <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1OxY-gSX8SlHMYJPqngkPkrhN3CWnOh1h?usp=drive_link" target="_blank" rel="noopener noreferrer">❤️ Cateterismo</a>
-                <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1eRzlNvXyLvt51ZopZo3pGdHhlXCDQkBi?usp=drive_link" target="_blank" rel="noopener noreferrer">🏥 Avaliação INCA</a>
-                <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1pyPtWJ2y9Kvmke1zJj2Pg_AjancKghdO?usp=drive_link" target="_blank" rel="noopener noreferrer">💓 Procedimentos Valvares</a>
-              </div>
-            </div>
+          <p class="lesson-intro">Escolha o procedimento para acessar a pasta de apoio com formulários, infográficos e orientações disponíveis. Os documentos oficiais permanecem no Google Drive.</p>
+          <div class="procedure-grid">
+            <article class="procedure-card">
+              <div class="procedure-card-head"><span class="procedure-icon">⚡</span><h3>Vaga Zero — SMS-Rio</h3></div>
+              <p>Formulários e materiais de apoio para a solicitação pela Plataforma SMS-Rio.</p>
+              <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1XRP2CwY8Xr8ZfQCf998FzaQbCenlXnQf?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir materiais ↗</a>
+            </article>
+            <article class="procedure-card">
+              <div class="procedure-card-head"><span class="procedure-icon">🩺</span><h3>EDA — Endoscopia Digestiva Alta</h3></div>
+              <p>Infográfico, formulário específico e documentos de apoio do fluxo HEGV → HECC.</p>
+              <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1YNMXN6z9R-nkCD88Tvb1W9sE-7RGyPEA?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir materiais ↗</a>
+            </article>
+            <article class="procedure-card">
+              <div class="procedure-card-head"><span class="procedure-icon">❤️</span><h3>Cateterismo Cardíaco</h3></div>
+              <p>Formulários de solicitação e informações complementares, com materiais de conferência.</p>
+              <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1OxY-gSX8SlHMYJPqngkPkrhN3CWnOh1h?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir materiais ↗</a>
+            </article>
+            <article class="procedure-card">
+              <div class="procedure-card-head"><span class="procedure-icon">🏥</span><h3>Avaliação INCA</h3></div>
+              <p>Orientações e documentos de apoio para avaliação ou transferência, conforme o caso.</p>
+              <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1eRzlNvXyLvt51ZopZo3pGdHhlXCDQkBi?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir materiais ↗</a>
+            </article>
+            <article class="procedure-card">
+              <div class="procedure-card-head"><span class="procedure-icon">💓</span><h3>Procedimentos Valvares</h3></div>
+              <p>Formulários gerais e complementares para os procedimentos valvares contemplados no material.</p>
+              <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1pyPtWJ2y9Kvmke1zJj2Pg_AjancKghdO?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir materiais ↗</a>
+            </article>
           </div>
-          <div class="material-box" style="margin-top:22px"><h3>🔐 Atenção</h3><p>Disponibilize nesta biblioteca somente modelos em branco. Documentos preenchidos com dados de pacientes não devem ser publicados em uma página pública.</p></div>
+          <div class="procedure-note"><strong>Importante:</strong> confira a versão vigente dos documentos e siga o fluxo institucional. Não utilize arquivos preenchidos com dados reais de pacientes como modelos de compartilhamento.</div>
         </div>
       </section>
 
