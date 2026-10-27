@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b3d68">
+<title>EDA | CAPACITA NIR — HEGV</title>
+<style>
+:root{--navy:#0b3155;--blue:#1269a7;--teal:#0b847b;--ink:#18344c;--muted:#61758a;--line:#dce7f0;--bg:#f3f7fb;--gold:#b96c1c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.55}
+header{background:linear-gradient(120deg,#0b3155,#1269a7);color:white;padding:24px 20px 32px}
+.top{max-width:1100px;margin:auto}.back{display:inline-block;color:#fff;text-decoration:none;border:1px solid #ffffff70;border-radius:9px;padding:8px 12px;font-size:14px}
+.kicker{margin:24px 0 6px;color:#bfe8f0;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:bold}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.12;margin:0 0 10px}.subtitle{max-width:720px;color:#e4f2fb;margin:0}
+main{max-width:1100px;margin:-16px auto 0;padding:0 18px 40px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 6px 20px #173b5709}
+h2{font-size:21px;margin:0 0 12px;color:var(--navy)}h3{font-size:16px;margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.action{display:flex;flex-direction:column;gap:9px;border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;font-weight:bold;border-radius:9px;padding:11px 14px;background:var(--blue);color:#fff}
+.btn.secondary{background:#e7f5f3;color:#075f59;border:1px solid #bce5df}
+.preview{width:100%;height:min(76vh,820px);min-height:440px;border:1px solid var(--line);border-radius:12px;background:#f7fafc}
+.note{background:#fff7e8;border-left:4px solid #d58a2d;border-radius:8px;padding:13px 15px;color:#704518}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:step}
+.step{border:1px solid var(--line);border-radius:11px;padding:14px;background:#fbfdff}
+.step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#dff4f1;color:#086d65;font-weight:bold;margin-bottom:9px}
+ul{padding-left:22px;margin:8px 0}li{margin:7px 0}.small{font-size:13px;color:var(--muted)}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:13px}
+@media(max-width:700px){.grid,.steps{grid-template-columns:1fr}main{padding:0 12px 28px}.panel{padding:16px}.preview{min-height:360px;height:65vh}}
+</style>
+</head>
+<body>
+<header><div class="top">
+<a class="back" href="../index.html#procedureCardsSection">← Voltar ao Portal CAPACITA NIR</a>
+<p class="kicker">Portal NIR 360 • HEGV</p>
+<h1>EDA — Endoscopia Digestiva Alta</h1>
+<p class="subtitle">Guia de apoio operacional para o fluxo de solicitação do HEGV ao HECC, com acesso direto ao infográfico e aos formulários informados para este procedimento.</p>
+</div></header>
+<main>
+<section class="panel">
+<h2>📌 Acesso rápido aos documentos</h2>
+<div class="grid">
+<div class="action"><h3>🗺️ Infográfico do fluxo EDA</h3><p>Visualize o material de orientação diretamente nesta página.</p><a class="btn" href="https://drive.google.com/file/d/1k8eQ2Ft_J6FrA5gPvwkTMNG88HGcWIJq/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">Abrir infográfico em nova aba ↗</a></div>
+<div class="action"><h3>⚡ Formulário de Vaga Zero</h3><p>Documento indicado para iniciar a solicitação conforme o fluxo institucional.</p><a class="btn secondary" href="https://docs.google.com/document/d/15qCFEvHm5J3hxXRZCvNZ-aAm0h61y43gQSJ6kw0koh8/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer">Abrir formulário Vaga Zero ↗</a></div>
+<div class="action"><h3>🩺 Formulário específico EDA — HECC</h3><p>Formulário específico para encaminhamento do pedido de EDA ao HECC.</p><a class="btn secondary" href="https://drive.google.com/file/d/11yHdUU824690gCeNGTNg3TKie1mIryAp/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">Abrir formulário EDA/HECC ↗</a></div>
+</div>
+</section>
+<section class="panel">
+<h2>🖼️ Infográfico</h2>
+<p class="small">Se a prévia não carregar por causa das permissões do Drive, use o botão “Abrir infográfico em nova aba”.</p>
+<iframe class="preview" src="https://drive.google.com/file/d/1k8eQ2Ft_J6FrA5gPvwkTMNG88HGcWIJq/preview" title="Infográfico do fluxo EDA" loading="lazy" allow="autoplay"></iframe>
+</section>
+<section class="panel">
+<h2>🔄 Etapas do fluxo</h2>
+<div class="steps">
+<div class="step"><h3>Solicitação médica</h3><p>O médico assistente preenche a solicitação de Vaga Zero.</p></div>
+<div class="step"><h3>Encaminhamento ao NIR</h3><p>O NIR recebe a solicitação e dá continuidade ao pedido pela plataforma SMS-Rio.</p></div>
+<div class="step"><h3>Conferência documental</h3><p>Conferir o formulário específico do HECC e os documentos clínicos necessários.</p></div>
+<div class="step"><h3>Envio e acompanhamento</h3><p>Encaminhar o formulário ao HECC por e-mail e acompanhar o retorno da Central de Regulação. Organizar o transporte conforme orientação e fluxo institucional.</p></div>
+</div>
+</section>
+<section class="panel">
+<h2>✅ Checklist para conferência do NIR</h2>
+<ul>
+<li>Solicitação de Vaga Zero preenchida.</li>
+<li>Formulário específico de EDA do HECC preenchido.</li>
+<li>Identificação do paciente e dados clínicos preenchidos.</li>
+<li>Registro de jejum mínimo de 8 horas.</li>
+<li>Dois resultados de hemoglobina e hematócrito realizados no mesmo dia, conforme formulário.</li>
+<li>Exames laboratoriais solicitados no formulário e informações sobre comorbidades e medicamentos em uso.</li>
+<li>Identificação do médico solicitante.</li>
+<li>Prontuário, prescrições e exames atualizados disponíveis para o transporte, conforme orientação institucional.</li>
+</ul>
+<div class="note"><strong>Atenção:</strong> confira sempre a versão vigente do formulário e os critérios institucionais antes de encaminhar. O formulário do HECC informa transporte em ambulância com médico e prontuário; siga a orientação da regulação e os protocolos vigentes.</div>
+</section>
+<footer>Material de apoio operacional — Portal NIR 360<br><strong>JANAINA ROSA</strong> • Gestão, organização, resultados.</footer>
+</main>
+</body></html>
