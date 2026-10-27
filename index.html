@@ -503,6 +503,34 @@ footer{line-height:1.8}
 .procedure-note{margin-top:18px;padding:14px 16px;border-radius:12px;background:#fff8df;border:1px solid #f1dfa0;color:#765916;font-size:12px}
 @media(max-width:650px){.procedure-grid{grid-template-columns:1fr}}
 
+
+/* ===== Cartões de procedimentos com prévia visual ===== */
+.procedure-library-section{margin:30px 0 36px}
+.procedure-library-intro{color:#60758a;max-width:760px;font-size:14px;line-height:1.65;margin:-8px 0 18px}
+.procedure-library-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.procedure-library-card{min-width:0;overflow:hidden;display:flex;flex-direction:column;background:#fff;border:1px solid #d9e6f3;border-radius:17px;box-shadow:0 5px 18px rgba(8,47,86,.055);transition:transform .18s ease,box-shadow .18s ease}
+.procedure-library-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(8,47,86,.11)}
+.procedure-card-visual{height:148px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;padding:16px 15px;background:linear-gradient(135deg,var(--proc-pale),#fff 68%);border-bottom:1px solid #e1ebf5}
+.procedure-card-visual:before,.procedure-card-visual:after{content:"";position:absolute;border-radius:50%;border:1px solid var(--proc-accent);opacity:.16}
+.procedure-card-visual:before{width:150px;height:150px;right:-36px;top:-68px}
+.procedure-card-visual:after{width:105px;height:105px;right:-14px;top:-45px}
+.procedure-card-icon{z-index:1;display:grid;place-items:center;width:76px;height:76px;border-radius:22px;background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 22px rgba(13,50,82,.1);font-size:42px}
+.procedure-visual-copy{z-index:1;max-width:65%;align-self:flex-start}
+.procedure-visual-kicker{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--proc-accent);background:rgba(255,255,255,.8);padding:5px 7px;border-radius:20px}
+.procedure-visual-copy strong{display:block;color:#10385f;font-size:17px;line-height:1.2;margin-top:10px}
+.procedure-mini-flow{position:absolute;left:15px;right:15px;bottom:12px;display:flex;gap:5px;align-items:center;z-index:1}
+.procedure-mini-flow span{flex:1;text-align:center;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:8px;font-weight:700;color:#214b70;background:rgba(255,255,255,.88);border:1px solid rgba(139,171,201,.4);border-radius:6px;padding:5px 3px}
+.procedure-mini-flow b{color:var(--proc-accent);font-size:11px}
+.procedure-card-body{padding:15px;display:flex;flex:1;flex-direction:column;gap:9px}
+.procedure-card-body h3{margin:0;color:#0b3157;font-size:16px;line-height:1.3}
+.procedure-card-body p{margin:0;color:#60758a;font-size:12px;line-height:1.55;min-height:55px}
+.procedure-card-tag{align-self:flex-start;display:inline-flex;border-radius:20px;padding:5px 9px;background:var(--proc-pale);color:var(--proc-accent);font-size:10px;font-weight:800}
+.procedure-card-open{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:auto;text-decoration:none;text-align:center;background:#0a416f;color:#fff;border:1px solid #0a416f;border-radius:9px;padding:10px 12px;font-size:12px;font-weight:800;transition:background .15s ease}
+.procedure-card-open:hover{background:#07539a}
+.procedure-library-note{margin-top:15px;border:1px solid #f0dda1;background:#fff9e7;color:#765d1d;border-radius:12px;padding:12px 14px;font-size:11px;line-height:1.6}
+@media(max-width:1100px){.procedure-library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.procedure-library-grid{grid-template-columns:1fr}.procedure-card-visual{height:132px}.procedure-card-body p{min-height:0}}
+
 </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -985,7 +1013,55 @@ footer{line-height:1.8}
       </div>
     </section>
 
-    <section id="homeSection">
+    <section class="procedure-library-section" id="procedureCardsSection" aria-labelledby="procedureCardsTitle">
+        <h2 class="section-title" id="procedureCardsTitle">📋 Procedimentos e formulários</h2>
+        <p class="procedure-library-intro">Cada cartão reúne uma prévia visual do procedimento e acesso aos materiais de apoio. Abra a pasta correspondente para consultar o infográfico e os formulários disponíveis.</p>
+        <div class="procedure-library-grid">
+          <article class="procedure-library-card" style="--proc-accent:#0878bd;--proc-pale:#e4f2ff">
+            <div class="procedure-card-visual">
+              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Fluxo operacional</span><strong>Vaga Zero</strong></div>
+              <div class="procedure-card-icon" aria-hidden="true">⚡</div>
+              <div class="procedure-mini-flow"><span>Solicitação</span><b>›</b><span>Documentos</span><b>›</b><span>Conferência</span></div>
+            </div>
+            <div class="procedure-card-body"><h3>Vaga Zero — SMS-Rio</h3><p>Materiais de apoio para a solicitação pela Plataforma SMS-Rio e conferência da documentação.</p><span class="procedure-card-tag">Regulação • SMS-Rio</span><a class="procedure-card-open" href="https://drive.google.com/drive/folders/1XRP2CwY8Xr8ZfQCf998FzaQbCenlXnQf?usp=drive_link" target="_blank" rel="noopener noreferrer">📂 Abrir infográfico e formulários ↗</a></div>
+          </article>
+          <article class="procedure-library-card" style="--proc-accent:#c46a22;--proc-pale:#fff0df">
+            <div class="procedure-card-visual">
+              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Guia de solicitação</span><strong>EDA</strong></div>
+              <div class="procedure-card-icon" aria-hidden="true">🩺</div>
+              <div class="procedure-mini-flow"><span>Solicitação</span><b>›</b><span>Documentos</span><b>›</b><span>Encaminhamento</span></div>
+            </div>
+            <div class="procedure-card-body"><h3>EDA — Endoscopia Digestiva Alta</h3><p>Fluxo HEGV → HECC, formulário específico e checklist documental para conferência pelo NIR.</p><span class="procedure-card-tag">Exames • HECC</span><a class="procedure-card-open" href="https://drive.google.com/drive/folders/1YNMXN6z9R-nkCD88Tvb1W9sE-7RGyPEA?usp=drive_link" target="_blank" rel="noopener noreferrer">📂 Abrir infográfico e formulários ↗</a></div>
+          </article>
+          <article class="procedure-library-card" style="--proc-accent:#b62d52;--proc-pale:#ffe7ee">
+            <div class="procedure-card-visual">
+              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Alta complexidade</span><strong>Cateterismo</strong></div>
+              <div class="procedure-card-icon" aria-hidden="true">❤️</div>
+              <div class="procedure-mini-flow"><span>História clínica</span><b>›</b><span>Exames</span><b>›</b><span>Conferência</span></div>
+            </div>
+            <div class="procedure-card-body"><h3>Cateterismo Cardíaco</h3><p>Formulário de Alta Complexidade, informações complementares e formulário de Alto Custo/Especial.</p><span class="procedure-card-tag">Cardiovascular</span><a class="procedure-card-open" href="https://drive.google.com/drive/folders/1OxY-gSX8SlHMYJPqngkPkrhN3CWnOh1h?usp=drive_link" target="_blank" rel="noopener noreferrer">📂 Abrir infográfico e formulários ↗</a></div>
+          </article>
+          <article class="procedure-library-card" style="--proc-accent:#13866c;--proc-pale:#ddf7ee">
+            <div class="procedure-card-visual">
+              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Avaliação especializada</span><strong>INCA</strong></div>
+              <div class="procedure-card-icon" aria-hidden="true">🏥</div>
+              <div class="procedure-mini-flow"><span>Relatório</span><b>›</b><span>Documentos</span><b>›</b><span>Avaliação</span></div>
+            </div>
+            <div class="procedure-card-body"><h3>Avaliação INCA</h3><p>Orientações para avaliação especializada, incluindo relatório médico, exames laboratoriais e documentação pertinente.</p><span class="procedure-card-tag">Avaliação especializada</span><a class="procedure-card-open" href="https://drive.google.com/drive/folders/1eRzlNvXyLvt51ZopZo3pGdHhlXCDQkBi?usp=drive_link" target="_blank" rel="noopener noreferrer">📂 Abrir infográfico e formulários ↗</a></div>
+          </article>
+          <article class="procedure-library-card" style="--proc-accent:#7146b9;--proc-pale:#efe7ff">
+            <div class="procedure-card-visual">
+              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Procedimentos cardíacos</span><strong>Valvares</strong></div>
+              <div class="procedure-card-icon" aria-hidden="true">💓</div>
+              <div class="procedure-mini-flow"><span>Alta complexidade</span><b>›</b><span>Complemento</span><b>›</b><span>Conferência</span></div>
+            </div>
+            <div class="procedure-card-body"><h3>Procedimentos Valvares</h3><p>Formulário de Alta Complexidade, formulário complementar valvar e Alto Custo/Especial.</p><span class="procedure-card-tag">Cardiovascular</span><a class="procedure-card-open" href="https://drive.google.com/drive/folders/1pyPtWJ2y9Kvmke1zJj2Pg_AjancKghdO?usp=drive_link" target="_blank" rel="noopener noreferrer">📂 Abrir infográfico e formulários ↗</a></div>
+          </article>
+        </div>
+        <div class="procedure-library-note"><strong>Nota:</strong> os cartões são uma prévia de navegação. Os links levam às pastas compartilhadas do Drive, onde ficam os materiais; quando tivermos os links individuais dos infográficos e formulários, poderemos separar os botões para abrir cada arquivo diretamente.</div>
+      </section>
+
+      <section id="homeSection">
 
       <h2 class="section-title">🎓 Minha Trilha</h2>
 
