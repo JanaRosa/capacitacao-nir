@@ -1,0 +1,49 @@
+/* CAPACITA NIR — padrão visual global */
+:root{
+  --nir-navy:#0b3155;--nir-blue:#1269a7;--nir-teal:#0b847b;
+  --nir-ink:#18344c;--nir-muted:#61758a;--nir-line:#dce7f0;
+  --nir-bg:#f3f7fb;--nir-radius:16px;--nir-gap:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+main{width:min(100% - 36px,1100px);margin-left:auto;margin-right:auto}
+h1{font-size:clamp(1.8rem,4vw,2.65rem);line-height:1.18}
+h2{font-size:clamp(1.2rem,2.5vw,1.45rem);line-height:1.3}
+h3{font-size:1rem;line-height:1.35}
+p,li{font-size:1rem}
+.panel,.card,.action,.step,.info-card,.value-card,.procedure-card{
+  border-radius:var(--nir-radius);border-color:var(--nir-line);
+}
+.panel{padding:22px;margin-block:18px}
+.grid,.steps,.actions,.info-grid,.values-grid{
+  align-items:stretch;gap:var(--nir-gap)
+}
+.grid>.action,.grid>.card,.steps>.step,.info-grid>.info-card,
+.values-grid>.value-card,.actions>.action{
+  height:100%;min-width:0
+}
+.action,.card{padding:18px}
+.btn,button,.intro-button,.intro-login-button,.login-button{
+  min-height:44px;border-radius:10px;font-weight:700
+}
+img:not(.brand img):not(.logo){
+  max-width:100%;height:auto;object-fit:contain
+}
+.preview,iframe{
+  display:block;width:100%;max-width:100%;border:1px solid var(--nir-line);
+  border-radius:12px;background:#fff
+}
+footer{line-height:1.5}
+@media(max-width:700px){
+  main{width:calc(100% - 28px);padding-left:0;padding-right:0}
+  .panel{padding:17px;margin-block:14px}
+  .grid,.steps,.info-grid,.values-grid{grid-template-columns:1fr}
+  .actions{grid-template-columns:1fr}
+  .action,.card{padding:15px}
+  p,li{font-size:.96rem}
+  .preview,iframe{min-height:320px}
+}
+@media(min-width:701px) and (max-width:980px){
+  .grid,.steps,.info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  main{width:calc(100% - 40px)}
+}
