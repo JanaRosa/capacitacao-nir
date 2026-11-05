@@ -562,8 +562,8 @@ footer{line-height:1.8}
         <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Início</a>
         <a href="#aboutNir">Sobre</a>
         <a href="#" onclick="showLogin();return false">Trilhas</a>
-        <a href="#" onclick="openLibrary();return false">Biblioteca</a>
-        <a href="#" onclick="openLibrary();return false">Formulários</a>
+        <a href="./biblioteca/">Biblioteca</a>
+        <a href="./formularios/">Formulários</a>
         <a href="#" onclick="showLogin();return false">Entrar →</a>
       </div>
     </nav>
@@ -587,9 +587,9 @@ footer{line-height:1.8}
 
     <div class="landing-shortcuts" aria-label="Acessos rápidos">
       <a class="landing-shortcut" href="#" onclick="showLogin();return false"><span>🎓</span><div><strong>Treinamentos</strong><small>Acessar os módulos</small></div></a>
-      <a class="landing-shortcut" href="#" onclick="openLibrary();return false"><span>📚</span><div><strong>Biblioteca NIR</strong><small>POPs, fluxos e manuais</small></div></a>
-      <a class="landing-shortcut" href="#" onclick="openLibrary();return false"><span>📄</span><div><strong>Formulários</strong><small>Documentos de apoio</small></div></a>
-      <a class="landing-shortcut" href="#" onclick="openLibrary();return false"><span>🔄</span><div><strong>Solicitações externas</strong><small>Procedimentos e avaliações</small></div></a>
+      <a class="landing-shortcut" href="./biblioteca/"><span>📚</span><div><strong>Biblioteca NIR</strong><small>POPs, fluxos e manuais</small></div></a>
+      <a class="landing-shortcut" href="./formularios/"><span>📄</span><div><strong>Formulários</strong><small>Modelos e registros do NIR</small></div></a>
+      <a class="landing-shortcut" href="./exames/"><span>🩺</span><div><strong>Exames e procedimentos</strong><small>Solicitações externas</small></div></a>
       <a class="landing-shortcut" href="#aboutNir"><span>👥</span><div><strong>Trabalho em equipe</strong><small>Integração e comunicação</small></div></a>
       <a class="landing-shortcut" href="#aboutNir"><span>📊</span><div><strong>Qualidade e indicadores</strong><small>Melhoria contínua</small></div></a>
     </div>
@@ -1089,11 +1089,11 @@ footer{line-height:1.8}
         <a class="portal-quick-card" href="#courseGrid">
           <span class="portal-quick-icon" aria-hidden="true">⚡</span><strong>Vaga Zero</strong><small>Treinamento e material de apoio</small>
         </a>
-        <a class="portal-quick-card" href="#librarySection">
-          <span class="portal-quick-icon" aria-hidden="true">▤</span><strong>Formulários</strong><small>Solicitações externas</small>
+        <a class="portal-quick-card" href="./formularios/">
+          <span class="portal-quick-icon" aria-hidden="true">▤</span><strong>Formulários</strong><small>Modelos e registros do NIR</small>
         </a>
-        <a class="portal-quick-card" href="#librarySection">
-          <span class="portal-quick-icon" aria-hidden="true">✓</span><strong>POPs e fluxos</strong><small>Procedimentos e orientações</small>
+        <a class="portal-quick-card" href="./biblioteca/">
+          <span class="portal-quick-icon" aria-hidden="true">✓</span><strong>POPs e fluxos</strong><small>Biblioteca NIR</small>
         </a>
         <a class="portal-quick-card" href="#courseGrid">
           <span class="portal-quick-icon" aria-hidden="true">▣</span><strong>Plataforma SMS-Rio</strong><small>Treinamento e guia rápido</small>
@@ -1124,59 +1124,9 @@ footer{line-height:1.8}
     </section>
 
     <section class="procedure-library-section" id="procedureCardsSection" aria-labelledby="procedureCardsTitle">
-        <h2 class="section-title" id="procedureCardsTitle">📋 Procedimentos e formulários</h2>
-        <p class="procedure-library-intro">Cada cartão reúne uma prévia visual do procedimento e acesso aos materiais de apoio. Abra a pasta correspondente para consultar o infográfico e os formulários disponíveis.</p>
-        <div class="procedure-library-grid">
-          <article class="procedure-library-card" style="--proc-accent:#0878bd;--proc-pale:#e4f2ff">
-            <div class="procedure-card-visual">
-              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Fluxo operacional</span><strong>Vaga Zero</strong></div>
-              <div class="procedure-card-icon" aria-hidden="true">⚡</div>
-              <div class="procedure-mini-flow"><span>Solicitação</span><b>›</b><span>Documentos</span><b>›</b><span>Conferência</span></div>
-            </div>
-            <div class="procedure-card-body"><h3>Vaga Zero — SMS-Rio</h3><p>Materiais de apoio para a solicitação pela Plataforma SMS-Rio e conferência da documentação.</p><span class="procedure-card-tag">Regulação • SMS-Rio</span><a class="procedure-card-open" href="procedimentos/vaga-zero.html" target="_blank" rel="noopener noreferrer">📄 Acessar página do procedimento ↗</a></div>
-          </article>
-          <article class="procedure-library-card" style="--proc-accent:#c46a22;--proc-pale:#fff0df">
-            <div class="procedure-card-visual">
-              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Guia de solicitação</span><strong>EDA</strong></div>
-              <div class="procedure-card-icon" aria-hidden="true">🩺</div>
-              <div class="procedure-mini-flow"><span>Solicitação</span><b>›</b><span>Documentos</span><b>›</b><span>Encaminhamento</span></div>
-            </div>
-            <div class="procedure-card-body"><h3>EDA — Endoscopia Digestiva Alta</h3><p>Fluxo HEGV → HECC, formulário específico e checklist documental para conferência pelo NIR.</p><span class="procedure-card-tag">Exames • HECC</span><a class="procedure-card-open" href="procedimentos/eda.html">📄 Acessar página do EDA ↗</a></div>
-          </article>
-          <article class="procedure-library-card" style="--proc-accent:#b62d52;--proc-pale:#ffe7ee">
-            <div class="procedure-card-visual">
-              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Alta complexidade</span><strong>Cateterismo</strong></div>
-              <div class="procedure-card-icon" aria-hidden="true">❤️</div>
-              <div class="procedure-mini-flow"><span>História clínica</span><b>›</b><span>Exames</span><b>›</b><span>Conferência</span></div>
-            </div>
-            <div class="procedure-card-body"><h3>Cateterismo Cardíaco</h3><p>Formulário de Alta Complexidade, informações complementares e formulário de Alto Custo/Especial.</p><span class="procedure-card-tag">Cardiovascular</span><a class="procedure-card-open" href="procedimentos/cateterismo.html" target="_blank" rel="noopener noreferrer">📄 Acessar página do procedimento ↗</a></div>
-          </article>
-          <article class="procedure-library-card" style="--proc-accent:#13866c;--proc-pale:#ddf7ee">
-            <div class="procedure-card-visual">
-              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Avaliação especializada</span><strong>INCA</strong></div>
-              <div class="procedure-card-icon" aria-hidden="true">🏥</div>
-              <div class="procedure-mini-flow"><span>Relatório</span><b>›</b><span>Documentos</span><b>›</b><span>Avaliação</span></div>
-            </div>
-            <div class="procedure-card-body"><h3>Avaliação INCA</h3><p>Orientações para avaliação especializada, incluindo relatório médico, exames laboratoriais e documentação pertinente.</p><span class="procedure-card-tag">Avaliação especializada</span><a class="procedure-card-open" href="procedimentos/inca.html" target="_blank" rel="noopener noreferrer">📄 Acessar página do procedimento ↗</a></div>
-          </article>
-          <article class="procedure-library-card" style="--proc-accent:#287d9b;--proc-pale:#e2f5fa">
-            <div class="procedure-card-visual">
-              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Exame especializado</span><strong>Broncoscopia</strong></div>
-              <div class="procedure-card-icon" aria-hidden="true">🫁</div>
-              <div class="procedure-mini-flow"><span>Solicitação</span><b>›</b><span>Documentos</span><b>›</b><span>Conferência</span></div>
-            </div>
-            <div class="procedure-card-body"><h3>Broncoscopia</h3><p>Guia infográfico, formulário de Broncoscopia e formulário de Alto Custo para apoio à conferência documental.</p><span class="procedure-card-tag">Exames especializados</span><a class="procedure-card-open" href="procedimentos/broncoscopia.html" target="_blank" rel="noopener noreferrer">📄 Acessar página do procedimento ↗</a></div>
-          </article>
-          <article class="procedure-library-card" style="--proc-accent:#7146b9;--proc-pale:#efe7ff">
-            <div class="procedure-card-visual">
-              <div class="procedure-visual-copy"><span class="procedure-visual-kicker">Procedimentos cardíacos</span><strong>Valvares</strong></div>
-              <div class="procedure-card-icon" aria-hidden="true">💓</div>
-              <div class="procedure-mini-flow"><span>Alta complexidade</span><b>›</b><span>Complemento</span><b>›</b><span>Conferência</span></div>
-            </div>
-            <div class="procedure-card-body"><h3>Procedimentos Valvares</h3><p>Formulário de Alta Complexidade, formulário complementar valvar e Alto Custo/Especial.</p><span class="procedure-card-tag">Cardiovascular</span><a class="procedure-card-open" href="procedimentos/valvares.html" target="_blank" rel="noopener noreferrer">📄 Acessar página do procedimento ↗</a></div>
-          </article>
-        </div>
-        <div class="procedure-library-note"><strong>Nota:</strong> os cartões são uma prévia de navegação. Os links levam às pastas compartilhadas do Drive, onde ficam os materiais; os materiais com links individuais estão disponíveis nas páginas específicas de cada procedimento.</div>
+        <h2 class="section-title" id="procedureCardsTitle">🩺 Exames e procedimentos externos</h2>
+        <p class="procedure-library-intro">Os fluxos, infográficos, formulários específicos e checklists estão organizados na área própria de cada procedimento.</p>
+        <a class="btn btn-primary" href="./exames/">Acessar central de exames e procedimentos →</a>
       </section>
 
       <section id="homeSection">
@@ -1334,19 +1284,12 @@ footer{line-height:1.8}
       </section>
 
       <section class="library" id="librarySection">
-        <h2 class="section-title">📚 Biblioteca NIR</h2>
-        <p style="color:var(--muted);margin-top:-8px;margin-bottom:20px">
-          Documentos e formulários para apoiar sua rotina no NIR.
-        </p>
+        <h2 class="section-title">📚 Acesso aos documentos do NIR</h2>
+        <p style="color:var(--muted);margin-top:-8px;margin-bottom:20px">Cada coleção tem seu espaço próprio para evitar duplicidade e facilitar a consulta.</p>
         <div class="library-grid">
-          <div class="library-item">
-            <strong>🔄 Solicitações Externas</strong>
-            <p>Formulários utilizados nas solicitações de procedimentos, exames e transferências externas.</p>
-            <button class="btn btn-primary" style="margin-top:8px" onclick="openExternalRequests()">📂 Acessar formulários</button>
-          </div>
-          <div class="library-item"><strong>📄 POPs</strong><p>Procedimentos Operacionais e materiais padronizados.</p></div>
-          <div class="library-item"><strong>🔄 Fluxos</strong><p>Fluxos e orientações para facilitar a rotina do NIR.</p></div>
-          <div class="library-item"><strong>📊 Indicadores</strong><p>Materiais relacionados ao acompanhamento dos processos.</p></div>
+          <div class="library-item"><strong>📚 Biblioteca NIR</strong><p>POPs, fluxogramas, manuais, protocolos e checklists.</p><a class="btn btn-primary" style="margin-top:8px" href="./biblioteca/">Acessar biblioteca</a></div>
+          <div class="library-item"><strong>📄 Formulários</strong><p>Modelos em branco e registros administrativos do NIR.</p><a class="btn btn-primary" style="margin-top:8px" href="./formularios/">Acessar formulários</a></div>
+          <div class="library-item"><strong>🩺 Exames e procedimentos</strong><p>Solicitações externas e documentos específicos de cada procedimento.</p><a class="btn btn-primary" style="margin-top:8px" href="./exames/">Acessar exames</a></div>
         </div>
       </section>
 
@@ -1615,14 +1558,7 @@ function openHistory(){
   window.scrollTo(0,0);
 }
 
-function openLibrary(){
-  introScreen.style.display="none";
-  historyPage.style.display="none";
-  libraryPage.style.display="block";
-  loginScreen.style.display="none";
-  app.style.display="none";
-  window.scrollTo(0,0);
-}
+function openLibrary(){ window.location.href="./biblioteca/"; }
 
 function showLogin(){
   introScreen.style.display="none";
@@ -1792,11 +1728,7 @@ function closeLesson(){
   window.scrollTo(0,0);
 }
 
-function openExternalRequests(){
-  document.getElementById("homeSection").style.display="none";
-  document.getElementById("externalRequestsSection").style.display="block";
-  window.scrollTo(0,0);
-}
+function openExternalRequests(){ window.location.href="./exames/"; }
 function closeExternalRequests(){
   document.getElementById("externalRequestsSection").style.display="none";
   document.getElementById("homeSection").style.display="block";
