@@ -91,7 +91,7 @@
         <div class="check-actions"><button class="reset" type="button" id="reset">Limpar checklist</button></div>
       </div>
       <p class="muted" style="margin:12px 0 0">Marque os itens durante a conferência da solicitação. As marcações servem como apoio visual nesta página e não substituem o registro institucional.</p>
-      <div class="attention"><strong>⚠ Atenção – observações do infográfico</strong><ul><li>Todos os campos são obrigatórios e devem ser preenchidos com letra legível.</li><li>A unidade solicitante deve assegurar que o transporte do paciente seja seguro e adequado à gravidade.</li></ul></div>
+      <div class="attention"><strong>⚠ Atenção – observações do infográfico</strong><div class="checklist-items" role="group" aria-label="Checklist de conferência"><label class="check-row"><input type="checkbox"><span>Todos os campos são obrigatórios e devem ser preenchidos com letra legível.</span></label><label class="check-row"><input type="checkbox"><span>A unidade solicitante deve assegurar que o transporte do paciente seja seguro e adequado à gravidade.</span></label></div><p class="check-progress" aria-live="polite">0 de 2 itens conferidos</p><button class="check-reset" type="button">Limpar checklist</button></div>
     </section>
     <div class="note"><strong>Material de apoio operacional – Portal NIR 360.</strong> Confira a versão vigente dos documentos e siga o fluxo institucional aplicável. O checklist não substitui os formulários oficiais nem a orientação da regulação.</div>
   </main>
@@ -103,5 +103,5 @@
     boxes.forEach(box=>box.addEventListener('change',updateProgress));
     document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(box=>box.checked=false);updateProgress();});
   </script>
-</body>
+<style>.checklist-items{display:grid;border:1px solid #cde6e3;border-radius:12px;overflow:hidden}.check-row{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-bottom:1px solid #e1ecee;background:#fbfefe;font-size:14px}.check-row:last-child{border-bottom:0}.check-row input{width:20px;height:20px;flex:0 0 auto;accent-color:#078b87;margin:1px 0 0}.check-row input:checked+span{text-decoration:line-through;color:#71858c}.check-progress{font-size:13px;color:#61758a;margin:10px 0}.check-reset{border:1px solid #b9d8d4;background:#fff;color:#08766e;border-radius:9px;padding:8px 12px;font-weight:700;cursor:pointer}</style><script>document.querySelectorAll('.checklist-items').forEach(list=>{const boxes=[...list.querySelectorAll('input')];const progress=list.parentElement.querySelector('.check-progress');const reset=list.parentElement.querySelector('.check-reset');const update=()=>{progress.textContent=boxes.filter(x=>x.checked).length+' de '+boxes.length+' itens conferidos'};boxes.forEach(x=>x.addEventListener('change',update));reset.addEventListener('click',()=>{boxes.forEach(x=>x.checked=false);update()})});</script></body>
 </html>
