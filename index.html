@@ -589,7 +589,7 @@ footer{line-height:1.8}
       <a class="landing-shortcut" href="#" onclick="showLogin();return false"><span>🎓</span><div><strong>Treinamentos</strong><small>Acessar os módulos</small></div></a>
       <a class="landing-shortcut" href="#" onclick="openLibrary();return false"><span>📚</span><div><strong>Biblioteca NIR</strong><small>POPs, fluxos e manuais</small></div></a>
       <a class="landing-shortcut" href="#" onclick="openLibrary();return false"><span>📄</span><div><strong>Formulários</strong><small>Documentos de apoio</small></div></a>
-      <a class="landing-shortcut" href="#aboutNir"><span>🔄</span><div><strong>Solicitações externas</strong><small>Procedimentos e avaliações</small></div></a>
+      <a class="landing-shortcut" href="#" onclick="openLibrary();return false"><span>🔄</span><div><strong>Solicitações externas</strong><small>Procedimentos e avaliações</small></div></a>
       <a class="landing-shortcut" href="#aboutNir"><span>👥</span><div><strong>Trabalho em equipe</strong><small>Integração e comunicação</small></div></a>
       <a class="landing-shortcut" href="#aboutNir"><span>📊</span><div><strong>Qualidade e indicadores</strong><small>Melhoria contínua</small></div></a>
     </div>
@@ -831,17 +831,28 @@ footer{line-height:1.8}
   <main class="history-content">
     <div class="history-content-card">
       <h2>🔄 Solicitações Externas</h2>
-      <p>Acesse os formulários utilizados nas solicitações de procedimentos, exames e outras demandas externas do NIR.</p>
-      <div style="text-align:center;margin-top:22px">
-        <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1b7rHPDDy81Ms2qcEQ0YRPQNH-QTcQEIM?usp=sharing" target="_blank" rel="noopener noreferrer">
-          📂 Abrir pasta de Solicitações Externas
-        </a>
+      <p>Escolha o procedimento para abrir sua página de referência, consultar o infográfico, acessar os formulários e utilizar o checklist de conferência.</p>
+      <div class="procedure-shortcuts">
+        <a href="procedimentos/vaga-zero.html"><span>⚡</span><strong>Vaga Zero — SMS-Rio</strong><small>Formulários, fluxo e checklist</small></a>
+        <a href="procedimentos/eda.html"><span>🩺</span><strong>EDA</strong><small>Endoscopia Digestiva Alta</small></a>
+        <a href="procedimentos/cateterismo.html"><span>❤️</span><strong>Cateterismo Cardíaco</strong><small>Formulários e conferência</small></a>
+        <a href="procedimentos/inca.html"><span>🏥</span><strong>Avaliação INCA</strong><small>Documentação e orientações</small></a>
+        <a href="procedimentos/broncoscopia.html"><span>🫁</span><strong>Broncoscopia</strong><small>Guia, etapas e checklist</small></a>
+        <a href="procedimentos/valvares.html"><span>💓</span><strong>Procedimentos Valvares</strong><small>Formulários e checklist</small></a>
+      </div>
+      <div style="text-align:center;margin-top:18px">
+        <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1b7rHPDDy81Ms2qcEQ0YRPQNH-QTcQEIM?usp=sharing" target="_blank" rel="noopener noreferrer">📂 Abrir pasta completa no Google Drive</a>
       </div>
     </div>
-
-    <div class="history-content-card"><h2>📋 POPs</h2><p>Procedimentos Operacionais e materiais padronizados.</p></div>
-    <div class="history-content-card"><h2>🔄 Fluxos</h2><p>Fluxos e orientações para facilitar a rotina do NIR.</p></div>
-    <div class="history-content-card"><h2>📑 Documentos e Normas</h2><p>Documentos de referência e materiais institucionais.</p></div>
+    <style>
+      .procedure-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+      .procedure-shortcuts a{display:grid;grid-template-columns:42px 1fr;column-gap:10px;align-items:center;text-decoration:none;text-align:left;padding:14px;border:1px solid #dce7f0;border-radius:12px;background:#f8fbfd;color:#18344c;transition:.18s}
+      .procedure-shortcuts a:hover{border-color:#1269a7;transform:translateY(-2px);box-shadow:0 6px 16px #173b570d}
+      .procedure-shortcuts a span{grid-row:span 2;font-size:26px}
+      .procedure-shortcuts a strong{font-size:14px}
+      .procedure-shortcuts a small{font-size:12px;color:#61758a}
+      @media(max-width:600px){.procedure-shortcuts{grid-template-columns:1fr}}
+    </style>
 
     <div class="material-box">
       <h3>🔐 Atenção</h3>
